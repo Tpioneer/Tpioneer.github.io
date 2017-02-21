@@ -185,18 +185,48 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h4 id="关键词：github-hexo-blog"><a href="#关键词：github-hexo-blog" class="headerlink" title="关键词：github hexo blog"></a>关键词：github hexo blog</h4><h3 id="STEP1-前期准备"><a href="#STEP1-前期准备" class="headerlink" title="STEP1 前期准备"></a>STEP1 前期准备</h3><blockquote>
-<p>在这里默认你已经拥有了github账号，如果没有，还等什么，<br>  赶快<a href="https://github.com/" target="_blank" rel="external">加入</a>最大的同性交友平台吧。</p>
+<p>在这里默认你已经拥有了github账号，如果没有，还等什么，赶快<a href="https://github.com/" target="_blank" rel="external">加入</a>最大的同性交友平台吧（雾。</p>
 </blockquote>
-<p>  在github中创建一个名为<strong>username.github.io</strong>（这里的username即你的账号名，比如我的为Tpioneer.github.io）的库，<br>  创建完后可以试着往库中push一个如下简单的index.html。（github的简单操作可以参考 如下<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">教程</a>）</p>
-<pre><code>&lt;!DOCTYPE html&gt;
- &lt;html&gt;
- &lt;body&gt;
- &lt;h1&gt;Hello World&lt;/h1&gt;
- &lt;p&gt;I&apos;m hosted with GitHub Pages.&lt;/p&gt;
- &lt;/body&gt;
- &lt;/html&gt;
-</code></pre><p>  接着在你的浏览器中输入<a href="https://username.github.io/,（username为你的账号名），如果没什么问题的话即可访问到Hello" target="_blank" rel="external">https://username.github.io/,（username为你的账号名），如果没什么问题的话即可访问到Hello</a> World。</p>
-<h3 id="STEP2-hexo环境配置与安装"><a href="#STEP2-hexo环境配置与安装" class="headerlink" title="STEP2 hexo环境配置与安装"></a>STEP2 hexo环境配置与安装</h3><p>hexo是一款基于Node.js的静态博客框架, 在安装hexo之前，我们需要先安装node.js,这里对安装不做过多介绍，<a href="https://nodejs.org/en/" target="_blank" rel="external">官网</a>的文档<br>很详细</p>
+<p>  在github中创建一个名为<strong>username.github.io</strong>（这里的username即你的账号名，比如我的为Tpioneer.github.io）的库，创建完<br>  后可以试着往库中push一个简单的index.html如下。（github的简单操作可以参考如下<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">教程</a>）</p>
+<pre><code class="html"><span class="meta">&lt;!DOCTYPE html&gt;</span>
+ <span class="tag">&lt;<span class="name">html</span>&gt;</span>
+ <span class="tag">&lt;<span class="name">body</span>&gt;</span>
+ <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello World<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>
+ <span class="tag">&lt;<span class="name">p</span>&gt;</span>I'm hosted with GitHub Pages.<span class="tag">&lt;/<span class="name">p</span>&gt;</span>
+ <span class="tag">&lt;/<span class="name">body</span>&gt;</span>
+ <span class="tag">&lt;/<span class="name">html</span>&gt;</span>
+</code></pre>
+<blockquote>
+<p>接着在你的浏览器中输入<code>https://username.github.io/</code>（username为你的账号名），如果没什么问题的话即可访问到Hello World。<br>  同时，需要安装git，可以去<a href="https://git-scm.com/" target="_blank" rel="external">官网</a>下载。</p>
+</blockquote>
+<h3 id="STEP2-hexo环境配置与安装"><a href="#STEP2-hexo环境配置与安装" class="headerlink" title="STEP2 hexo环境配置与安装"></a>STEP2 hexo环境配置与安装</h3><blockquote>
+<p>hexo是一款基于Node.js的静态博客框架, 在安装hexo之前，我们需要先安装node.js,这里对安装不做过多介绍，<a href="https://nodejs.org/en/" target="_blank" rel="external">官网</a>的文档已经很详细了。</p>
+</blockquote>
+<p>Node和Git都安装好后,首先创建一个blog文件夹,然后进入blog目录来安装Hexo（windows用户推荐用Git Bash）。执行如下命令安装Hexo：<br>    <strong>sudo npm install -g hexo</strong></p>
+<p>安装完成后，执行init命令初始化hexo,命令：<br>    <strong>hexo init</strong><br>然后等待安装完成，即完成了hexo的安装。</p>
+<p>安装完成后需要对hexo进行配置，找到/hexo/_config.yml文件，用任意编辑器打开该文件，拉到最后找到Deployment,将其改为下图所示<br>内容：<br><img src="/img/deploy.png" alt="Alt text"></p>
+<blockquote>
+<p>这里有个需要注意的点，在冒号后面一定要空格，否则识别不出来</p>
+</blockquote>
+<p>修改头像，同样需要打开_config.yml ，找到 <strong> avatar: </strong>这一行，然后添加头像的URL就行了，当然你也可以将头像图片放入hexo/public/img<br>目录下，然后将配置改为如下：<br><strong>avatar: /img/xxx.jpg</strong></p>
+<p>同理可以修改你的博客名，博客描述，作者等信息，这里发一张我的参考配置如下：<br><img src="/img/config.png" alt="Alt text"></p>
+<p>当然配置文件中还有很多其他的配置选项，在这里就不一一赘述了，<a href="https://hexo.io/docs/" target="_blank" rel="external">官网</a>上提供了更详细的参考资料</p>
+<h3 id="STEP3-hexo的部署和常用命令"><a href="#STEP3-hexo的部署和常用命令" class="headerlink" title="STEP3 hexo的部署和常用命令"></a>STEP3 hexo的部署和常用命令</h3><blockquote>
+<p>部署步骤如下(建议在每次重新部署时都执行一次hexo clean)：<br>    hexo clean<br>    hexo generate (hexo g)<br>    hexo deploy (hexo d)<br>在部署完成后，在你的浏览器中输入<strong><a href="https://username.github.io/" target="_blank" rel="external">https://username.github.io/</a></strong>，大功告成，撒花<em>★,°</em>:.☆(￣▽￣)/$:<em>.°★</em> 。</p>
+</blockquote>
+<p>当然，这只是简单的部署了属于你自己的一个blog，你还需要稍微再花费点时间让你的blog更加丰富多彩。</p>
+<p>首先，你需要了解下面提供的一些常用命令：</p>
+<ul>
+<li>hexo new “postName” #新建文章</li>
+<li>hexo new page”pageName” #新建页面</li>
+<li>hexo generate #生成静态页面至public目录</li>
+<li>hexo server #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）</li>
+<li>hexo deploy #将.deploy目录部署到GitHub</li>
+<li>hexo help #查看帮助</li>
+<li>hexo version #查看Hexo的版本</li>
+</ul>
+<p>了解了这些命令，相信你写一些简单的blog已经没有什么问题了，但是中庸的官方主题肯定不会让你特别喜欢。这里有个<a href="https://www.zhihu.com/question/24422335" target="_blank" rel="external">主题集合</a>,<br>你可以在这里尽情挑选你喜欢的主题，每个主题的github中都有相应的文档，所以，大胆的去尝试吧，相信你一定能找到适合你的那个。</p>
+<p>最后，送上一份Markdown的<a href="http://www.appinn.com/markdown/basic.html" target="_blank" rel="external">语法说明书</a>,还等什么，赶快开启你的私人blog之旅吧!</p>
 
       
 
