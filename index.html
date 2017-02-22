@@ -197,23 +197,10 @@
         <blockquote>
 <p>关键词： html5  语义化  前端</p>
 </blockquote>
-<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>  首先，这篇文章并不是介绍html的所有标签，这里仅仅是对html5中新定义的一系列语义化标签如<code>&lt;header&gt;,&lt;nav&gt;,&lt;section&gt;</code>等的一个简单<br>  的汇总，这些语义化的标签的出现，不仅提高了开发效率，同时相对于使用过多的div，这些标签的出现极大的增强了页面的语义化。下面总结了一<br>  些常用的语义化标签。</p>
-<h4 id="header标签"><a href="#header标签" class="headerlink" title="header标签"></a>header标签</h4><p><strong>header</strong> 标签定义文档的页眉（介绍信息），通常是一些引导和导航信息。整个页面没有限制header元素的个数，可以拥有多个，可以为每个<br>内容块增加一个header元素。</p>
-<p>示例如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">header</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>this is the page Logo<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">nav</span>&gt;</span>this is page navigation<span class="tag">&lt;/<span class="name">nav</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">header</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<h4 id="footer标签"><a href="#footer标签" class="headerlink" title="footer标签"></a>footer标签</h4><p><strong>footer</strong> 标签定义文档或节的页脚。页脚通常包含文档的作者、版权信息、使用条款链接、联系信息等等<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">footer</span>&gt;</span> </div><div class="line">COPYRIGHT@Tpioneer</div><div class="line"><span class="tag">&lt;/<span class="name">footer</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<h4 id="nav标签"><a href="#nav标签" class="headerlink" title="nav标签"></a>nav标签</h4><p>nav 标签定义显示导航链接不是所有的成组的超级链接都需要放在nav标签里。nav标签里应该放入一些当前页面的主要导航链接。 例如在页脚显示一个<br>站点的导航链接（如首页，服务信息页面，版权信息页面等等），就可以使用nav标签，当然，这不是必须的</p>
-<p>示例如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">nav</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>HTML 5<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>CSS3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>JavaScript<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">nav</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<h4 id="article标签"><a href="#article标签" class="headerlink" title="article标签"></a>article标签</h4><p><strong>article</strong>标签装载显示一个独立的文章内容。例如一篇完整的论坛帖子，一则网站新闻，一篇博客文章等等，一个用户评论等等。artilce可以嵌套，<br>则内层的artilce对外层的article标签有隶属的关系，如果在article内部再嵌套article，那就代表内嵌的article是与它外部的内容有关联的，<br>如博客文章下面的评论。在这里需要注意的是，article标签的内容独立于文档的其余部分。</p>
-<p>示例如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">article</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>文章标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">    这是一篇文章</div><div class="line">    <span class="tag">&lt;<span class="name">article</span>&gt;</span>评论1...<span class="tag">&lt;/<span class="name">article</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">article</span>&gt;</span>评论2...<span class="tag">&lt;/<span class="name">article</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">article</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<h4 id="aside标签"><a href="#aside标签" class="headerlink" title="aside标签"></a>aside标签</h4><p><strong>aside</strong>元素被包含在article元素中作为主要内容的附属信息部分，其中的内容可以是与当前文章有关的相关资料、标签、名次解释等。（特殊的section）<br>在article元素之外使用作为页面或站点全局的附属信息部分。最典型的是侧边栏，其中的内容可以是日志串连，其他组的导航，甚至广告，这些内容相关<br>的页面。</p>
-<p>示例如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">article</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">aside</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>广告<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>今日头条<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">aside</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">article</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<h4 id="section标签"><a href="#section标签" class="headerlink" title="section标签"></a>section标签</h4><p><strong>section</strong> 标签定义文档中的节（section、区段）。比如章节、页眉、页脚或文档中的其他部分。<br>section使用注意：<br>一张页面可以用section划分为简介、文章条目和联系信息。不过在文章内页，最好用article。section不是一般意义上的容器元素，如果想作为样式展示和<br>脚本的便利，可以用div。表示文档中的节或者段；article、nav、aside可以理解为特殊的section，所以如果可以用article、nav、aside就不要用section，<br>没实际意义的就用div。</p>
-<p>示例如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">section</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>section<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">article</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">h2</span>&gt;</span>section<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>section的介绍<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">section</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">h3</span>&gt;</span>关于其他<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>关于其他section的介绍<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">section</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">article</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<h4 id="time标签"><a href="#time标签" class="headerlink" title="time标签"></a>time标签</h4><p><strong>time</strong>是文本标签，用来标记一篇文章的发布时间。<br>示例如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">time</span> <span class="attr">datetime</span>=<span class="string">"2017-02-15"</span> <span class="attr">pubdate</span>&gt;</span>2017年02月15日<span class="tag">&lt;/<span class="name">time</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<h4 id="figure标签"><a href="#figure标签" class="headerlink" title="figure标签"></a>figure标签</h4><p>figure标签规定独立的流内容（图像、图表、照片、代码等等）。figure 元素的内容应该与主内容相关，但如果被删除，则不应对文档流产生影响。</p>
-<p>示例如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">figure</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>黄浦江上的的卢浦大桥<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>拍摄者：W3School 项目组，拍摄时间：2010 年 10 月<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"/i/shanghai_lupu_bridge.jpg"</span> <span class="attr">width</span>=<span class="string">"350"</span> <span class="attr">height</span>=<span class="string">"234"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">figure</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>以上这些标签都是html5中新出现的语义化标签，在定义有语义的内容时，优先选择语义化标签而不是div，例如页眉用header，导航用nav，页脚用footer等等。<br>当然这也不是说div标签就没有意义了，因为div是没有任何意义的元素，它只是一个标签，仅仅是用来构建外观和结构。因此是最适合做容器的标签。</p>
-
+<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>  首先，这篇文章并不是介绍html的所有标签，这里仅仅是对html5中新定义的一系列语义化标签如<code>&lt;header&gt;,&lt;nav&gt;,&lt;section&gt;</code>等的一个简单<br>  的汇总，这些语义化的标签的出现，不仅提高了开发效率，同时相对于使用过多的div，这些标签的出现极大的增强了页面的语义化。下面总结了一<br>  些常用的语义化标签。<br>
+        
+          <a class="article-more-a" href="/2017/02/22/前端入门笔记（一）/#more">more >></a>
+        
       
 
       
@@ -254,86 +241,6 @@
 
 
   
-    <article id="post-前端入门笔记（二）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/22/前端入门笔记（二）/">前端入门笔记一——html5语义化标签</a>
-    </h1>
-  
-
-        
-        <a href="/2017/02/22/前端入门笔记（二）/" class="archive-article-date">
-  	<time datetime="2017-02-22T05:56:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>关键词： html5  语义化  前端</p>
-</blockquote>
-<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>  首先，这篇文章并不是介绍html的所有标签，这里仅仅是对html5中新定义的一系列语义化标签如<code>&lt;header&gt;,&lt;nav&gt;,&lt;section&gt;</code>等的一个简单<br>  的汇总，这些语义化的标签的出现，不仅提高了开发效率，同时相对于使用过多的div，这些标签的出现极大的增强了页面的语义化。下面总结了一<br>  些常用的语义化标签。</p>
-<h4 id="header标签"><a href="#header标签" class="headerlink" title="header标签"></a>header标签</h4><p><strong>header</strong> 标签定义文档的页眉（介绍信息），通常是一些引导和导航信息。整个页面没有限制header元素的个数，可以拥有多个，可以为每个<br>内容块增加一个header元素。</p>
-<p>示例如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">header</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>this is the page Logo<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">nav</span>&gt;</span>this is page navigation<span class="tag">&lt;/<span class="name">nav</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">header</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<h4 id="footer标签"><a href="#footer标签" class="headerlink" title="footer标签"></a>footer标签</h4><p><strong>footer</strong> 标签定义文档或节的页脚。页脚通常包含文档的作者、版权信息、使用条款链接、联系信息等等<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">footer</span>&gt;</span> </div><div class="line">COPYRIGHT@Tpioneer</div><div class="line"><span class="tag">&lt;/<span class="name">footer</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<h4 id="nav标签"><a href="#nav标签" class="headerlink" title="nav标签"></a>nav标签</h4><p>nav 标签定义显示导航链接不是所有的成组的超级链接都需要放在nav标签里。nav标签里应该放入一些当前页面的主要导航链接。 例如在页脚显示一个<br>站点的导航链接（如首页，服务信息页面，版权信息页面等等），就可以使用nav标签，当然，这不是必须的</p>
-<p>示例如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">nav</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>HTML 5<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>CSS3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>JavaScript<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">nav</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<h4 id="article标签"><a href="#article标签" class="headerlink" title="article标签"></a>article标签</h4><p><strong>article</strong>标签装载显示一个独立的文章内容。例如一篇完整的论坛帖子，一则网站新闻，一篇博客文章等等，一个用户评论等等。artilce可以嵌套，<br>则内层的artilce对外层的article标签有隶属的关系，如果在article内部再嵌套article，那就代表内嵌的article是与它外部的内容有关联的，<br>如博客文章下面的评论。在这里需要注意的是，article标签的内容独立于文档的其余部分。</p>
-<p>示例如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">article</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>文章标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">    这是一篇文章</div><div class="line">    <span class="tag">&lt;<span class="name">article</span>&gt;</span>评论1...<span class="tag">&lt;/<span class="name">article</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">article</span>&gt;</span>评论2...<span class="tag">&lt;/<span class="name">article</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">article</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<h4 id="aside标签"><a href="#aside标签" class="headerlink" title="aside标签"></a>aside标签</h4><p><strong>aside</strong>元素被包含在article元素中作为主要内容的附属信息部分，其中的内容可以是与当前文章有关的相关资料、标签、名次解释等。（特殊的section）<br>在article元素之外使用作为页面或站点全局的附属信息部分。最典型的是侧边栏，其中的内容可以是日志串连，其他组的导航，甚至广告，这些内容相关<br>的页面。</p>
-<p>示例如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">article</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">aside</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>广告<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>今日头条<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">aside</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">article</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<h4 id="section标签"><a href="#section标签" class="headerlink" title="section标签"></a>section标签</h4><p><strong>section</strong> 标签定义文档中的节（section、区段）。比如章节、页眉、页脚或文档中的其他部分。<br>section使用注意：<br>一张页面可以用section划分为简介、文章条目和联系信息。不过在文章内页，最好用article。section不是一般意义上的容器元素，如果想作为样式展示和<br>脚本的便利，可以用div。表示文档中的节或者段；article、nav、aside可以理解为特殊的section，所以如果可以用article、nav、aside就不要用section，<br>没实际意义的就用div。</p>
-<p>示例如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">section</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>section<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">article</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">h2</span>&gt;</span>section<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>section的介绍<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">section</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">h3</span>&gt;</span>关于其他<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>关于其他section的介绍<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">section</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">article</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<h4 id="time标签"><a href="#time标签" class="headerlink" title="time标签"></a>time标签</h4><p><strong>time</strong>是文本标签，用来标记一篇文章的发布时间。<br>示例如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">time</span> <span class="attr">datetime</span>=<span class="string">"2017-02-15"</span> <span class="attr">pubdate</span>&gt;</span>2017年02月15日<span class="tag">&lt;/<span class="name">time</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<h4 id="figure标签"><a href="#figure标签" class="headerlink" title="figure标签"></a>figure标签</h4><p>figure标签规定独立的流内容（图像、图表、照片、代码等等）。figure 元素的内容应该与主内容相关，但如果被删除，则不应对文档流产生影响。</p>
-<p>示例如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">figure</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>黄浦江上的的卢浦大桥<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>拍摄者：W3School 项目组，拍摄时间：2010 年 10 月<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"/i/shanghai_lupu_bridge.jpg"</span> <span class="attr">width</span>=<span class="string">"350"</span> <span class="attr">height</span>=<span class="string">"234"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">figure</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>以上这些标签都是html5中新出现的语义化标签，在定义有语义的内容时，优先选择语义化标签而不是div，例如页眉用header，导航用nav，页脚用footer等等。<br>当然这也不是说div标签就没有意义了，因为div是没有任何意义的元素，它只是一个标签，仅仅是用来构建外观和结构。因此是最适合做容器的标签。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/22/前端入门笔记（二）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
     <article id="post-HEXO搭建你的专属博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -354,50 +261,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="关键词：github-hexo-blog"><a href="#关键词：github-hexo-blog" class="headerlink" title="关键词：github hexo blog"></a>关键词：github hexo blog</h4><h3 id="STEP1-前期准备"><a href="#STEP1-前期准备" class="headerlink" title="STEP1 前期准备"></a>STEP1 前期准备</h3><blockquote>
-<p>在这里默认你已经拥有了github账号，如果没有，还等什么，赶快<a href="https://github.com/" target="_blank" rel="external">加入</a>最大的同性交友平台吧（雾。</p>
+        <blockquote>
+<p>关键词：github  hexo  blog</p>
 </blockquote>
-<p>  在github中创建一个名为<strong>username.github.io</strong>（这里的username即你的账号名，比如我的为Tpioneer.github.io）的库，创建完<br>  后可以试着往库中push一个简单的index.html如下。（github的简单操作可以参考如下<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">教程</a>）</p>
-<pre><code class="html"><span class="meta">&lt;!DOCTYPE html&gt;</span>
- <span class="tag">&lt;<span class="name">html</span>&gt;</span>
- <span class="tag">&lt;<span class="name">body</span>&gt;</span>
- <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello World<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>
- <span class="tag">&lt;<span class="name">p</span>&gt;</span>I'm hosted with GitHub Pages.<span class="tag">&lt;/<span class="name">p</span>&gt;</span>
- <span class="tag">&lt;/<span class="name">body</span>&gt;</span>
- <span class="tag">&lt;/<span class="name">html</span>&gt;</span>
-</code></pre>
-<blockquote>
-<p>接着在你的浏览器中输入<code>https://username.github.io/</code>（username为你的账号名），如果没什么问题的话即可访问到Hello World。<br>  同时，需要安装git，可以去<a href="https://git-scm.com/" target="_blank" rel="external">官网</a>下载。</p>
+<h3 id="STEP1-前期准备"><a href="#STEP1-前期准备" class="headerlink" title="STEP1 前期准备"></a>STEP1 前期准备</h3><blockquote>
+<p>在这里默认你已经拥有了github账号，如果没有，还等什么，赶快<a href="https://github.com/">加入</a>最大的同性交友平台吧（雾。</p>
 </blockquote>
-<h3 id="STEP2-hexo环境配置与安装"><a href="#STEP2-hexo环境配置与安装" class="headerlink" title="STEP2 hexo环境配置与安装"></a>STEP2 hexo环境配置与安装</h3><blockquote>
-<p>hexo是一款基于Node.js的静态博客框架, 在安装hexo之前，我们需要先安装node.js,这里对安装不做过多介绍，<a href="https://nodejs.org/en/" target="_blank" rel="external">官网</a>的文档已经很详细了。</p>
-</blockquote>
-<p>Node和Git都安装好后,首先创建一个blog文件夹,然后进入blog目录来安装Hexo（windows用户推荐用Git Bash）。执行如下命令安装Hexo：<br>    <strong>sudo npm install -g hexo</strong></p>
-<p>安装完成后，执行init命令初始化hexo,命令：<br>    <strong>hexo init</strong><br>然后等待安装完成，即完成了hexo的安装。</p>
-<p>安装完成后需要对hexo进行配置，找到/hexo/_config.yml文件，用任意编辑器打开该文件，拉到最后找到Deployment,将其改为下图所示<br>内容：<br><img src="/img/deploy.png" alt="Alt text"></p>
-<blockquote>
-<p>这里有个需要注意的点，在冒号后面一定要空格，否则识别不出来</p>
-</blockquote>
-<p>修改头像，同样需要打开_config.yml ，找到 <strong> avatar: </strong>这一行，然后添加头像的URL就行了，当然你也可以将头像图片放入hexo/source/img<br>目录下，然后将配置改为如下：<br><strong>avatar: /img/xxx.jpg</strong></p>
-<p>同理可以修改你的博客名，博客描述，作者等信息，这里发一张我的参考配置如下：<br><img src="/img/config.png" alt="Alt text"></p>
-<p>当然配置文件中还有很多其他的配置选项，在这里就不一一赘述了，<a href="https://hexo.io/docs/" target="_blank" rel="external">官网</a>上提供了更详细的参考资料</p>
-<h3 id="STEP3-hexo的部署和常用命令"><a href="#STEP3-hexo的部署和常用命令" class="headerlink" title="STEP3 hexo的部署和常用命令"></a>STEP3 hexo的部署和常用命令</h3><blockquote>
-<p>部署步骤如下(建议在每次重新部署时都执行一次hexo clean)：<br>    hexo clean<br>    hexo generate (hexo g)<br>    hexo deploy (hexo d)<br>在部署完成后，在你的浏览器中输入<strong><a href="https://username.github.io/" target="_blank" rel="external">https://username.github.io/</a></strong>，大功告成，撒花<em>★,°</em>:.☆(￣▽￣)/$:<em>.°★</em> 。</p>
-</blockquote>
-<p>当然，这只是简单的部署了属于你自己的一个blog，你还需要稍微再花费点时间让你的blog更加丰富多彩。</p>
-<p>首先，你需要了解下面提供的一些常用命令：</p>
-<ul>
-<li>hexo new “postName” #新建文章</li>
-<li>hexo new page”pageName” #新建页面</li>
-<li>hexo generate #生成静态页面至public目录</li>
-<li>hexo server #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）</li>
-<li>hexo deploy #将.deploy目录部署到GitHub</li>
-<li>hexo help #查看帮助</li>
-<li>hexo version #查看Hexo的版本</li>
-</ul>
-<p>了解了这些命令，相信你写一些简单的blog已经没有什么问题了，但是中庸的官方主题肯定不会让你特别喜欢。这里有个<a href="https://www.zhihu.com/question/24422335" target="_blank" rel="external">主题集合</a>,<br>你可以在这里尽情挑选你喜欢的主题，每个主题的github中都有相应的文档，所以，大胆的去尝试吧，相信你一定能找到适合你的那个。</p>
-<p>最后，送上一份Markdown的<a href="http://www.appinn.com/markdown/basic.html" target="_blank" rel="external">语法说明书</a>,还等什么，赶快开启你的私人blog之旅吧!</p>
-
+<p>  在github中创建一个名为<strong>username.github.io</strong>（这里的username即你的账号名，比如我的为Tpioneer.github.io）的库，创建完<br>  后可以试着往库中push一个简单的index.html如下。（github的简单操作可以参考如下<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000">教程</a>）<br>
+        
+          <a class="article-more-a" href="/2017/02/21/HEXO搭建你的专属博客/#more">more >></a>
+        
       
 
       
