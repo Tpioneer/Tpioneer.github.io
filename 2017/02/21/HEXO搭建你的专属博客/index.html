@@ -26,7 +26,7 @@ STEP1 前期准备
   在github中创建一个名为username.github.io（这里的username即你的账号名，比如我的为Tpioneer.github.io）的库，创建完  后可以试着往库中push一个简单的index.html如下。">
 <meta property="og:image" content="http://tpioneer.github.io/img/deploy.png">
 <meta property="og:image" content="http://tpioneer.github.io/img/config.png">
-<meta property="og:updated_time" content="2017-02-22T07:29:33.021Z">
+<meta property="og:updated_time" content="2017-02-26T06:47:25.998Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HEXO搭建你的专属博客">
 <meta name="twitter:description" content="关键词：github  hexo  blog
@@ -234,12 +234,12 @@ STEP1 前期准备
 </blockquote>
 <p>Node和Git都安装好后,首先创建一个blog文件夹,然后进入blog目录来安装Hexo（windows用户推荐用Git Bash）。执行如下命令安装Hexo：<br>    <strong>sudo npm install -g hexo</strong></p>
 <p>安装完成后，执行init命令初始化hexo,命令：<br>    <strong>hexo init</strong><br>然后等待安装完成，即完成了hexo的安装。</p>
-<p>安装完成后需要对hexo进行配置，找到/hexo/_config.yml文件，用任意编辑器打开该文件，拉到最后找到Deployment,将其改为下图所示<br>内容：<br><img src="/img/deploy.png" alt="Alt text"></p>
+<p>安装完成后需要对hexo进行配置，找到/hexo/_config.yml文件，用任意编辑器打开该文件，拉到最后找到Deployment,将其改为下图所示<br>内容：<br><img src="/img/deploy.png" alt="config"></p>
 <blockquote>
 <p>这里有个需要注意的点，在冒号后面一定要空格，否则识别不出来</p>
 </blockquote>
 <p>修改头像，同样需要打开_config.yml ，找到 <strong> avatar: </strong>这一行，然后添加头像的URL就行了，当然你也可以将头像图片放入hexo/source/img<br>目录下，然后将配置改为如下：<br><strong>avatar: /img/xxx.jpg</strong></p>
-<p>同理可以修改你的博客名，博客描述，作者等信息，这里发一张我的参考配置如下：<br><img src="/img/config.png" alt="Alt text"></p>
+<p>同理可以修改你的博客名，博客描述，作者等信息，这里发一张我的参考配置如下：<br><img src="/img/config.png" alt="config"></p>
 <p>当然配置文件中还有很多其他的配置选项，在这里就不一一赘述了，<a href="https://hexo.io/docs/" target="_blank" rel="external">官网</a>上提供了更详细的参考资料</p>
 <h3 id="STEP3-hexo的部署和常用命令"><a href="#STEP3-hexo的部署和常用命令" class="headerlink" title="STEP3 hexo的部署和常用命令"></a>STEP3 hexo的部署和常用命令</h3><blockquote>
 <p>部署步骤如下(建议在每次重新部署时都执行一次hexo clean)：<br>    hexo clean<br>    hexo generate (hexo g)<br>    hexo deploy (hexo d)<br>在部署完成后，在你的浏览器中输入<strong><a href="https://username.github.io/" target="_blank" rel="external">https://username.github.io/</a></strong>，大功告成，撒花<em>★,°</em>:.☆(￣▽￣)/$:<em>.°★</em> 。</p>
@@ -447,6 +447,10 @@ STEP1 前期准备
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
