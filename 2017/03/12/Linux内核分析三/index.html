@@ -6,17 +6,30 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://tpioneer.github.io">
-  <title>Archives | ButterFly</title>
+  <title>Linux内核分析三——跟踪分析Linux内核的启动过程 | ButterFly</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前端新人，热爱技术">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ButterFly">
-<meta property="og:url" content="http://tpioneer.github.io/archives/index.html">
+  <meta name="description" content="陶先锋 原创作品转载请注明出处 《Linux内核分析》MOOC课程 http://mooc.study.163.com/course/USTC-1000029000
+
+一、基础知识（1）Linux内核中常用的目录1.arch/:与体系结构相关的代码，（内容庞大，支持不同cpu的源代码）。2.documentation/:文档文件3.fs/:file system 文件系统4.drivers/:与">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux内核分析三——跟踪分析Linux内核的启动过程">
+<meta property="og:url" content="http://tpioneer.github.io/2017/03/12/Linux内核分析三/index.html">
 <meta property="og:site_name" content="ButterFly">
-<meta property="og:description" content="前端新人，热爱技术">
+<meta property="og:description" content="陶先锋 原创作品转载请注明出处 《Linux内核分析》MOOC课程 http://mooc.study.163.com/course/USTC-1000029000
+
+一、基础知识（1）Linux内核中常用的目录1.arch/:与体系结构相关的代码，（内容庞大，支持不同cpu的源代码）。2.documentation/:文档文件3.fs/:file system 文件系统4.drivers/:与">
+<meta property="og:image" content="https://dn-simplecloud.shiyanlou.com/2651671489321494405-wm">
+<meta property="og:image" content="https://dn-simplecloud.shiyanlou.com/2651671489321852330-wm">
+<meta property="og:image" content="https://dn-simplecloud.shiyanlou.com/2651671489322317896-wm">
+<meta property="og:image" content="https://dn-simplecloud.shiyanlou.com/2651671489322573670-wm">
+<meta property="og:image" content="https://dn-simplecloud.shiyanlou.com/2651671489323349972-wm">
+<meta property="og:updated_time" content="2017-03-12T13:01:27.130Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ButterFly">
-<meta name="twitter:description" content="前端新人，热爱技术">
+<meta name="twitter:title" content="Linux内核分析三——跟踪分析Linux内核的启动过程">
+<meta name="twitter:description" content="陶先锋 原创作品转载请注明出处 《Linux内核分析》MOOC课程 http://mooc.study.163.com/course/USTC-1000029000
+
+一、基础知识（1）Linux内核中常用的目录1.arch/:与体系结构相关的代码，（内容庞大，支持不同cpu的源代码）。2.documentation/:文档文件3.fs/:file system 文件系统4.drivers/:与">
+<meta name="twitter:image" content="https://dn-simplecloud.shiyanlou.com/2651671489321494405-wm">
   
     <link rel="alternative" href="/atom.xml" title="ButterFly" type="application/atom+xml">
   
@@ -172,36 +185,55 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Linux内核分析三" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Linux内核分析三——跟踪分析Linux内核的启动过程
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/12/Linux内核分析三/" class="archive-article-date">
+
+        
+        <a href="/2017/03/12/Linux内核分析三/" class="archive-article-date">
   	<time datetime="2017-03-12T12:18:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-12</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/12/Linux内核分析三/">Linux内核分析三——跟踪分析Linux内核的启动过程</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>陶先锋 原创作品转载请注明出处 《Linux内核分析》MOOC课程 <a href="http://mooc.study.163.com/course/USTC-1000029000" target="_blank" rel="external">http://mooc.study.163.com/course/USTC-1000029000</a></p>
+</blockquote>
+<h3 id="一、基础知识"><a href="#一、基础知识" class="headerlink" title="一、基础知识"></a>一、基础知识</h3><h4 id="（1）Linux内核中常用的目录"><a href="#（1）Linux内核中常用的目录" class="headerlink" title="（1）Linux内核中常用的目录"></a>（1）Linux内核中常用的目录</h4><p>1.arch/:与体系结构相关的代码，（内容庞大，支持不同cpu的源代码）。<br>2.documentation/:文档文件<br>3.fs/:file system 文件系统<br>4.drivers/:与驱动相关的代码<br>5.lib/:链接库文件<br>  <a id="more"></a><br>6.ipc/:与进程间通信相关的文件<br>7.mm/:memory managment 内存管理<br>8.kernel/:Linux内核的核心代码<br>9.init/:与内核启动相关的代码，其中有main.c，main.c中的start_kernel（）函数是初始化Linux的起点 </p>
+<h4 id="（2）使用gdb调试工具的基本指令"><a href="#（2）使用gdb调试工具的基本指令" class="headerlink" title="（2）使用gdb调试工具的基本指令"></a>（2）使用gdb调试工具的基本指令</h4><p>1.gdb 可执行文件名：进入gdb调试<br>2.（gdb）l：相当于list，从第一行开始列出源码<br>3.（gdb）回车：重复上一次指令<br>4.（gdb）break 函数名/行数：在某一行或者某个函数处设置断点<br>5.（gdb）info break:查看断点信息<br>6.在断点内可以使用：r（run运行）,n（next单句执行）,c（contiune继续执行）<br>7.（gdb）bt:查看函数堆栈<br>8.（gdb）finis:退出函数<br>9.（gdb）q:退出gdb </p>
+<h4 id="（3）Linux内核启动过程"><a href="#（3）Linux内核启动过程" class="headerlink" title="（3）Linux内核启动过程"></a>（3）Linux内核启动过程</h4><p>Linux系统的启动分为4个部分：引导加载程序（bootloader）,Linux内核，文件系统，应用程序，其中，在Linux内核启动时我们完成了系统的重要初始化，并创建了init进程。 内核启动主要可以分为两个阶段：第一阶段主要是与硬件相关的初始化工作，这次我们讨论的主要是第二部分。 在内核源码的init/main.c中，定义了内核启动的入口函数start_kernel(),在start _kernel()中调用相关处理程序函数， 创建了0号进程（set _task _stack _end _magic(&amp;init _task)）， 设置体系结构的相关环境（setup _arch）, 初始化内存结构（bootmem _init）, 开启mmu， 建立页表（paging _init）, 初始化串口（console _init）， 0号进程是所有进程的父进程，0号进程创建了1号进程init，又创建了其他服务例程。 </p>
+<h3 id="二、实验执行——通过gdb调试，分析Linux的内核启动过程"><a href="#二、实验执行——通过gdb调试，分析Linux的内核启动过程" class="headerlink" title="二、实验执行——通过gdb调试，分析Linux的内核启动过程"></a>二、实验执行——通过gdb调试，分析Linux的内核启动过程</h3><h4 id="（1）实验步骤："><a href="#（1）实验步骤：" class="headerlink" title="（1）实验步骤："></a>（1）实验步骤：</h4><p>1.使用实验楼已配置好的环境，</p>
+<blockquote>
+<p>cd LinuxKernel/<br>qemu -kernel linux-3.18.6/arch/x86/boot/bzImage -initrd rootfs.img</p>
+</blockquote>
+<p><img src="https://dn-simplecloud.shiyanlou.com/2651671489321494405-wm" alt="实验楼"><br>2.进入gdb调试： </p>
+<blockquote>
+<p>qemu -kernel linux-3.18.6/arch/x86/boot/bzImage -initrd rootfs.img -s -S<br>其中：<br>-S 是指在初始化cpu之前将cpu冻结<br>-s 是指在-gdb tcp ：：1234，创建一个gdb server </p>
+</blockquote>
+<p><img src="https://dn-simplecloud.shiyanlou.com/2651671489321852330-wm" alt="实验楼"><br>另开一个shell窗口：<br>（gdb）file linux-3.18.6/vmlinux<br><img src="https://dn-simplecloud.shiyanlou.com/2651671489322317896-wm" alt="实验楼"></p>
+<blockquote>
+<p>（gdb）target remote:1234<br>（gdb）break start_kernel<br>（gdb）c </p>
+</blockquote>
+<p><img src="https://dn-simplecloud.shiyanlou.com/2651671489322573670-wm" alt="实验楼">!<br>在start_kernel处设置断点，执行c调试，冻结的系统开始启动,断点执行到start _kernel<br>若设置断点在rest<em>init,<br><img src="https://dn-simplecloud.shiyanlou.com/2651671489323349972-wm" alt="实验楼"><br>利用list命令查看，发现rest</em> init在start _kernel的尾部，几乎所有重要的内核模块初始化都在start _kernel完成，这是内核启动的关键。</p>
+<h4 id="（2）实验分析"><a href="#（2）实验分析" class="headerlink" title="（2）实验分析"></a>（2）实验分析</h4><p>进入并分析start_kernel:<br>1.init<em>task全局变量：即手工创建的PCB,0号进程即最终的idle进程.<br>在start</em> kernel（）中set <em> task</em> stack<em> end</em> magic (&amp;init_task)中进行设置和初始化。0号进程是所有进程的父进程<br>2.trap<em>init（）：初始化中断向量<br>在trap</em> init（）中set<em> intr</em> gate(…)设置了很多中断门，执行不同的硬件中断。set <em> system </em> trap <em> gate（SYSCALL</em> VECTOR,&amp;system_call）,设置系统陷阱门，就是系统调用！<br>3.mm<em>init()内存管理的初始化，sched </em> init()调度模块的初始化<br>4.在start_ kernel的最后执行rest<em>init()：<br>在rest</em> init()中调用了kernel_thread（kernel _init,NULL,CLONE _FS）,在kernel _init中，调用了run _init _process ()，默认的init是根目录下的init，如果在根目录下没有，则找/sbin/init,/etc/init,/bin/init,/bin/sh作为1号进程，则kernel <em>init创建了一个1号进程， 执行kernel </em> thread（kernel <em> threaddd,NULL,CLONE </em> FS|CLONE <em> FILES）,创建内核线程管理系统的运行资源，在rest init()尾部，进入了cpu startup </em> entry(…),进入cpu <em> idle,执行cpu </em> idle _ loop(),在cpu idle loop()进行while(1)的循环处理，这就是0号进程。当系统没有进程需要执行时就调度到idle进程 ,start_kernel()启动时rest _init就一直存在，也就是0号进程，0号进程创建了1号进程，还创建了其他的服务线程，这样内核就启动起来了。 </p>
+<h3 id="三、实验总结"><a href="#三、实验总结" class="headerlink" title="三、实验总结"></a>三、实验总结</h3><p>本次实验主要分析了在内核启动过程中的第一个函数：start_kernel的执行。<br>start<em>kernel（）是init/main.c第一个启动的函数，主要完成了很多重要的与硬件平台相关和内核相关的初始化，并创建了init进程。 在init的start</em> kernel()中调用了setup_ arch()进行与体系结构相关的第一个初始化， 通过bottom_init()函数根据系统定义的meminfo结构进行内存初始化， 最后paging_init()开启mmu，创建内核页表，映射所有的物理内存和I/O空间， 完成了创建异常向量表和初始化中断处理函数，初始化系统核心进程调度器和时钟中断处理机制，初始化串口控制台（serial<em>console）等等， 当所有的相关操作结束后，start</em> kernel（）会调用rest_ init()进行最后初始化，包括创建系统的第一个进程——init进程，init进程首先进行一系列的硬件初始化，然后通过命令行传递过来的参数挂在根文件系统，init进程会执行用户传递过来的参数执行用户指定的命令或者执行/sbin/init,/etc/init,/bin/init,/bin/sh 之一完成初始化工作，cpu_idle会被调用使系统处于闲置状态并等待用户输入。<br>到此，Linux内核启动完毕。<br>注意：<br>（1）内核启动过程包括start<em>kernel之前和之后，之前全部是做初始化的汇编指令，之后开始C代码的操作系统初始化，最后执行第一个用户态进程init<br>（2）从rest</em> init开始，Linux开始产生进程，因为init<em> task是静态制造出来的，pid=0，它试图将从最早的汇编代码一直到start</em> kernel的执行都纳入到init_ task进程上下文中。在rest <em>init函数中，内核将通过下面的代码产生第一个真正的进程(pid=1)：<br>道生一（start</em> kernel….cpu_ idle），一生二（kernel_init和kthreadd），二生三（即前面0、1和2三个进程），三生万物（1号进程是所有用户态进程的祖先，2号进程是所有内核线程的祖先）<br>通过这次实验，要重点理解内核启动时各个函数的功能以及调用顺序等，Linux启动过程很复杂，有很多硬件软件等初始化，应好好理解！</p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -213,209 +245,88 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://tpioneer.github.io/2017/03/12/Linux内核分析三/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/05/Linux内核分析二/" class="archive-article-date">
-  	<time datetime="2017-03-05T12:27:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-05</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/05/Linux内核分析二/">Linux内核分析二——操作系统如和工作</a>
-    </h1>
+  
+    <a href="/2017/03/05/Linux内核分析二/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux内核分析二——操作系统如和工作</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/27/新学期计划/" class="archive-article-date">
-  	<time datetime="2017-02-27T11:43:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/27/新学期计划/">新学期学习计划</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">心情</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/24/Linux内核分析一/" class="archive-article-date">
-  	<time datetime="2017-02-24T05:38:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/24/Linux内核分析一/">Linux内核分析一 ——计算机如何工作</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/22/前端入门笔记（一）/" class="archive-article-date">
-  	<time datetime="2017-02-22T05:56:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/22/前端入门笔记（一）/">前端入门笔记一——html5语义化标签</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/21/HEXO搭建你的专属博客/" class="archive-article-date">
-  	<time datetime="2017-02-21T15:33:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/21/HEXO搭建你的专属博客/">HEXO搭建你的专属博客</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -438,8 +349,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
