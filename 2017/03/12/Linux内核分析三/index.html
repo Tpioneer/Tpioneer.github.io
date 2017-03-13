@@ -10,25 +10,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="陶先锋 原创作品转载请注明出处 《Linux内核分析》MOOC课程 http://mooc.study.163.com/course/USTC-1000029000
 
-一、基础知识（1）Linux内核中常用的目录1.arch/:与体系结构相关的代码，（内容庞大，支持不同cpu的源代码）。2.documentation/:文档文件3.fs/:file system 文件系统4.drivers/:与">
+一、基础知识（1）Linux内核中常用的目录arch/ 是体系结构相关的代码，其中的/x86 文件夹下的内容是x86体系结构相关代码，是内核分析的重要分析目标。init/ 是内核启动相关的代码，是本文的重点分析对象。/init/m">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux内核分析三——跟踪分析Linux内核的启动过程">
 <meta property="og:url" content="http://tpioneer.github.io/2017/03/12/Linux内核分析三/index.html">
 <meta property="og:site_name" content="ButterFly">
 <meta property="og:description" content="陶先锋 原创作品转载请注明出处 《Linux内核分析》MOOC课程 http://mooc.study.163.com/course/USTC-1000029000
 
-一、基础知识（1）Linux内核中常用的目录1.arch/:与体系结构相关的代码，（内容庞大，支持不同cpu的源代码）。2.documentation/:文档文件3.fs/:file system 文件系统4.drivers/:与">
+一、基础知识（1）Linux内核中常用的目录arch/ 是体系结构相关的代码，其中的/x86 文件夹下的内容是x86体系结构相关代码，是内核分析的重要分析目标。init/ 是内核启动相关的代码，是本文的重点分析对象。/init/m">
 <meta property="og:image" content="https://dn-simplecloud.shiyanlou.com/2651671489321494405-wm">
 <meta property="og:image" content="https://dn-simplecloud.shiyanlou.com/2651671489321852330-wm">
 <meta property="og:image" content="https://dn-simplecloud.shiyanlou.com/2651671489322317896-wm">
 <meta property="og:image" content="https://dn-simplecloud.shiyanlou.com/2651671489322573670-wm">
 <meta property="og:image" content="https://dn-simplecloud.shiyanlou.com/2651671489323349972-wm">
-<meta property="og:updated_time" content="2017-03-12T13:01:27.130Z">
+<meta property="og:updated_time" content="2017-03-13T02:47:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux内核分析三——跟踪分析Linux内核的启动过程">
 <meta name="twitter:description" content="陶先锋 原创作品转载请注明出处 《Linux内核分析》MOOC课程 http://mooc.study.163.com/course/USTC-1000029000
 
-一、基础知识（1）Linux内核中常用的目录1.arch/:与体系结构相关的代码，（内容庞大，支持不同cpu的源代码）。2.documentation/:文档文件3.fs/:file system 文件系统4.drivers/:与">
+一、基础知识（1）Linux内核中常用的目录arch/ 是体系结构相关的代码，其中的/x86 文件夹下的内容是x86体系结构相关代码，是内核分析的重要分析目标。init/ 是内核启动相关的代码，是本文的重点分析对象。/init/m">
 <meta name="twitter:image" content="https://dn-simplecloud.shiyanlou.com/2651671489321494405-wm">
   
     <link rel="alternative" href="/atom.xml" title="ButterFly" type="application/atom+xml">
@@ -208,7 +208,7 @@
         <blockquote>
 <p>陶先锋 原创作品转载请注明出处 《Linux内核分析》MOOC课程 <a href="http://mooc.study.163.com/course/USTC-1000029000" target="_blank" rel="external">http://mooc.study.163.com/course/USTC-1000029000</a></p>
 </blockquote>
-<h3 id="一、基础知识"><a href="#一、基础知识" class="headerlink" title="一、基础知识"></a>一、基础知识</h3><h4 id="（1）Linux内核中常用的目录"><a href="#（1）Linux内核中常用的目录" class="headerlink" title="（1）Linux内核中常用的目录"></a>（1）Linux内核中常用的目录</h4><p>1.arch/:与体系结构相关的代码，（内容庞大，支持不同cpu的源代码）。<br>2.documentation/:文档文件<br>3.fs/:file system 文件系统<br>4.drivers/:与驱动相关的代码<br>5.lib/:链接库文件<br>  <a id="more"></a><br>6.ipc/:与进程间通信相关的文件<br>7.mm/:memory managment 内存管理<br>8.kernel/:Linux内核的核心代码<br>9.init/:与内核启动相关的代码，其中有main.c，main.c中的start_kernel（）函数是初始化Linux的起点 </p>
+<h3 id="一、基础知识"><a href="#一、基础知识" class="headerlink" title="一、基础知识"></a>一、基础知识</h3><h4 id="（1）Linux内核中常用的目录"><a href="#（1）Linux内核中常用的目录" class="headerlink" title="（1）Linux内核中常用的目录"></a>（1）Linux内核中常用的目录</h4><p>arch/ 是体系结构相关的代码，其中的/x86 文件夹下的内容是x86体系结构相关代码，是内核分析的重要分析目标。<br>init/ 是内核启动相关的代码，是本文的重点分析对象。/init/main.c 文件是内核启动的起点，是分析内核启动流程的首要分析对象。<br>fs/ 文件系统（file system?）<br>kernel/ 内核相关的代码，一些内核中使用到的结构体、函数等重要对象的定义都在这里面。<br>mm/ 内存管理的相关代码（memory managment?）<br>  <a id="more"></a></p>
 <h4 id="（2）使用gdb调试工具的基本指令"><a href="#（2）使用gdb调试工具的基本指令" class="headerlink" title="（2）使用gdb调试工具的基本指令"></a>（2）使用gdb调试工具的基本指令</h4><p>1.gdb 可执行文件名：进入gdb调试<br>2.（gdb）l：相当于list，从第一行开始列出源码<br>3.（gdb）回车：重复上一次指令<br>4.（gdb）break 函数名/行数：在某一行或者某个函数处设置断点<br>5.（gdb）info break:查看断点信息<br>6.在断点内可以使用：r（run运行）,n（next单句执行）,c（contiune继续执行）<br>7.（gdb）bt:查看函数堆栈<br>8.（gdb）finis:退出函数<br>9.（gdb）q:退出gdb </p>
 <h4 id="（3）Linux内核启动过程"><a href="#（3）Linux内核启动过程" class="headerlink" title="（3）Linux内核启动过程"></a>（3）Linux内核启动过程</h4><p>Linux系统的启动分为4个部分：引导加载程序（bootloader）,Linux内核，文件系统，应用程序，其中，在Linux内核启动时我们完成了系统的重要初始化，并创建了init进程。 内核启动主要可以分为两个阶段：第一阶段主要是与硬件相关的初始化工作，这次我们讨论的主要是第二部分。 在内核源码的init/main.c中，定义了内核启动的入口函数start_kernel(),在start _kernel()中调用相关处理程序函数， 创建了0号进程（set _task _stack _end _magic(&amp;init _task)）， 设置体系结构的相关环境（setup _arch）, 初始化内存结构（bootmem _init）, 开启mmu， 建立页表（paging _init）, 初始化串口（console _init）， 0号进程是所有进程的父进程，0号进程创建了1号进程init，又创建了其他服务例程。 </p>
 <h3 id="二、实验执行——通过gdb调试，分析Linux的内核启动过程"><a href="#二、实验执行——通过gdb调试，分析Linux的内核启动过程" class="headerlink" title="二、实验执行——通过gdb调试，分析Linux的内核启动过程"></a>二、实验执行——通过gdb调试，分析Linux的内核启动过程</h3><h4 id="（1）实验步骤："><a href="#（1）实验步骤：" class="headerlink" title="（1）实验步骤："></a>（1）实验步骤：</h4><p>1.使用实验楼已配置好的环境，</p>
@@ -223,9 +223,16 @@
 <blockquote>
 <p>（gdb）target remote:1234<br>（gdb）break start_kernel<br>（gdb）c </p>
 </blockquote>
-<p><img src="https://dn-simplecloud.shiyanlou.com/2651671489322573670-wm" alt="实验楼">!<br>在start_kernel处设置断点，执行c调试，冻结的系统开始启动,断点执行到start _kernel<br>若设置断点在rest<em>init,<br><img src="https://dn-simplecloud.shiyanlou.com/2651671489323349972-wm" alt="实验楼"><br>利用list命令查看，发现rest</em> init在start _kernel的尾部，几乎所有重要的内核模块初始化都在start _kernel完成，这是内核启动的关键。</p>
-<h4 id="（2）实验分析"><a href="#（2）实验分析" class="headerlink" title="（2）实验分析"></a>（2）实验分析</h4><p>进入并分析start_kernel:<br>1.init<em>task全局变量：即手工创建的PCB,0号进程即最终的idle进程.<br>在start</em> kernel（）中set <em> task</em> stack<em> end</em> magic (&amp;init_task)中进行设置和初始化。0号进程是所有进程的父进程<br>2.trap<em>init（）：初始化中断向量<br>在trap</em> init（）中set<em> intr</em> gate(…)设置了很多中断门，执行不同的硬件中断。set <em> system </em> trap <em> gate（SYSCALL</em> VECTOR,&amp;system_call）,设置系统陷阱门，就是系统调用！<br>3.mm<em>init()内存管理的初始化，sched </em> init()调度模块的初始化<br>4.在start_ kernel的最后执行rest<em>init()：<br>在rest</em> init()中调用了kernel_thread（kernel _init,NULL,CLONE _FS）,在kernel _init中，调用了run _init _process ()，默认的init是根目录下的init，如果在根目录下没有，则找/sbin/init,/etc/init,/bin/init,/bin/sh作为1号进程，则kernel <em>init创建了一个1号进程， 执行kernel </em> thread（kernel <em> threaddd,NULL,CLONE </em> FS|CLONE <em> FILES）,创建内核线程管理系统的运行资源，在rest init()尾部，进入了cpu startup </em> entry(…),进入cpu <em> idle,执行cpu </em> idle _ loop(),在cpu idle loop()进行while(1)的循环处理，这就是0号进程。当系统没有进程需要执行时就调度到idle进程 ,start_kernel()启动时rest _init就一直存在，也就是0号进程，0号进程创建了1号进程，还创建了其他的服务线程，这样内核就启动起来了。 </p>
-<h3 id="三、实验总结"><a href="#三、实验总结" class="headerlink" title="三、实验总结"></a>三、实验总结</h3><p>本次实验主要分析了在内核启动过程中的第一个函数：start_kernel的执行。<br>start<em>kernel（）是init/main.c第一个启动的函数，主要完成了很多重要的与硬件平台相关和内核相关的初始化，并创建了init进程。 在init的start</em> kernel()中调用了setup_ arch()进行与体系结构相关的第一个初始化， 通过bottom_init()函数根据系统定义的meminfo结构进行内存初始化， 最后paging_init()开启mmu，创建内核页表，映射所有的物理内存和I/O空间， 完成了创建异常向量表和初始化中断处理函数，初始化系统核心进程调度器和时钟中断处理机制，初始化串口控制台（serial<em>console）等等， 当所有的相关操作结束后，start</em> kernel（）会调用rest_ init()进行最后初始化，包括创建系统的第一个进程——init进程，init进程首先进行一系列的硬件初始化，然后通过命令行传递过来的参数挂在根文件系统，init进程会执行用户传递过来的参数执行用户指定的命令或者执行/sbin/init,/etc/init,/bin/init,/bin/sh 之一完成初始化工作，cpu_idle会被调用使系统处于闲置状态并等待用户输入。<br>到此，Linux内核启动完毕。<br>注意：<br>（1）内核启动过程包括start<em>kernel之前和之后，之前全部是做初始化的汇编指令，之后开始C代码的操作系统初始化，最后执行第一个用户态进程init<br>（2）从rest</em> init开始，Linux开始产生进程，因为init<em> task是静态制造出来的，pid=0，它试图将从最早的汇编代码一直到start</em> kernel的执行都纳入到init_ task进程上下文中。在rest <em>init函数中，内核将通过下面的代码产生第一个真正的进程(pid=1)：<br>道生一（start</em> kernel….cpu_ idle），一生二（kernel_init和kthreadd），二生三（即前面0、1和2三个进程），三生万物（1号进程是所有用户态进程的祖先，2号进程是所有内核线程的祖先）<br>通过这次实验，要重点理解内核启动时各个函数的功能以及调用顺序等，Linux启动过程很复杂，有很多硬件软件等初始化，应好好理解！</p>
+<p><img src="https://dn-simplecloud.shiyanlou.com/2651671489322573670-wm" alt="实验楼">!<br>在start_kernel处设置断点，执行c调试，冻结的系统开始启动,断点执行到start _kernel,start_kernel()函数是一切的起点，在这个函数被调用之前都是系统的初始化工作（汇编语言），所以对内核的启动分析一般都从这个函数开始；main.c中没有main函数，start_kernel()这个函数就相当于是c程序中的main函数。下面从这个函数开始对内核的启动流程进行分析。首先，是init_task,它其实就是一个task_struct，与用户进程的task_struct一样， task_struct中保存了一个进程的所有基本信息，如进程状态，栈起始地址，进程号pid等；init_task的特殊之处在于它的pid=0,也就是通常所说的0号进程,在创建了0号进程之后，start_kernel()函数继续调用各个系统模块进行各种初始化之类的工作，比如：</p>
+<blockquote>
+<p>trap_init()完成中断向量的相关设置<br>调用mm_init()完成内存管理的设置<br>调用sched_init()完成调度模块的初始化</p>
+</blockquote>
+<p>若设置断点在rest_init,<br><img src="https://dn-simplecloud.shiyanlou.com/2651671489323349972-wm" alt="实验楼"><br>这样子就调用了另一个非常重要的函数rest_init()，它的位置在/linux-3.18.6/init/main.c，其代码如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="number">393</span><span class="keyword">static</span> noinline <span class="keyword">void</span> __<span class="function">init_refok <span class="title">rest_init</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">394&#123;</div><div class="line"><span class="number">395</span> <span class="keyword">int</span> pid;</div><div class="line"><span class="number">396</span></div><div class="line"><span class="number">397</span> rcu_scheduler_starting();</div><div class="line"><span class="number">398</span> <span class="comment">/*</span></div><div class="line">399  * We need to spawn init first so that it obtains pid 1, however</div><div class="line">400  * the init task will end up wanting to create kthreads, which, if</div><div class="line">401  * we schedule it before we create kthreadd, will OOPS.</div><div class="line">402  */</div><div class="line"><span class="number">403</span> kernel_thread(kernel_init, <span class="literal">NULL</span>, CLONE_FS);</div><div class="line"><span class="number">404</span> numa_default_policy();</div><div class="line"><span class="number">405</span> pid = kernel_thread(kthreadd, <span class="literal">NULL</span>, CLONE_FS | CLONE_FILES);</div><div class="line"><span class="number">406</span> rcu_read_lock();</div><div class="line"><span class="number">407</span> kthreadd_task = find_task_by_pid_ns(pid, &amp;init_pid_ns);</div><div class="line"><span class="number">408</span> rcu_read_unlock();</div><div class="line"><span class="number">409</span> complete(&amp;kthreadd_done);</div><div class="line"><span class="number">410</span></div><div class="line"><span class="number">411</span> <span class="comment">/*</span></div><div class="line">412  * The boot idle thread must execute schedule()</div><div class="line">413  * at least once to get things moving:</div><div class="line">414  */</div><div class="line"><span class="number">415</span> init_idle_bootup_task(current);</div><div class="line"><span class="number">416</span> schedule_preempt_disabled();</div><div class="line"><span class="number">417</span> <span class="comment">/* Call into cpu_idle with preempt disabled */</span></div><div class="line"><span class="number">418</span> cpu_startup_entry(CPUHP_ONLINE);</div><div class="line"><span class="number">419</span>&#125;</div></pre></td></tr></table></figure></p>
+<p>rest_init()函数中这行代码：</p>
+<blockquote>
+<p>kernel_thread(kernel_init, NULL, CLONE_FS);<br>这个函数的功能是创建一个内核线程,kernel_thread函数中第一个参数是一个函数指针，也就是说内核此时fork出了一个新进程来执行kernel_init函数（低版本内核中这个函数名为init，为了区分init进程所以将其改为了kernel_init）;在kernel_init函数(/linux-3.18.6/init/main.c)正式启动了init进程,也就是1号进程。在kernel _init中，调用了run _init _process ()，默认的init是根目录下的init，如果在根目录下没有，则找/sbin/init,/etc/init,/bin/init,/bin/sh作为1号进程，则kernel <em>init创建了一个1号进程， 执行kernel </em> thread（kernel <em> threaddd,NULL,CLONE </em> FS|CLONE <em> FILES）,创建内核线程管理系统的运行资源，在rest init()尾部，进入了cpu startup </em> entry(…),进入cpu <em> idle,执行cpu </em> idle _ loop(),在cpu idle loop()进行while(1)的循环处理，这就是0号进程。当系统没有进程需要执行时就调度到idle进程 ,start_kernel()启动时rest _init就一直存在，也就是0号进程，0号进程创建了1号进程，还创建了其他的服务线程，这样内核就启动起来了。</p>
+</blockquote>
+<h3 id="三、实验总结"><a href="#三、实验总结" class="headerlink" title="三、实验总结"></a>三、实验总结</h3><p>本次实验主要分析了在内核启动过程中的第一个函数：start_kernel的执行。<br>start<em>kernel（）是init/main.c第一个启动的函数，主要完成了很多重要的与硬件平台相关和内核相关的初始化，并创建了init进程。 在init的start</em> kernel()中调用了setup_ arch()进行与体系结构相关的第一个初始化， 通过bottom_init()函数根据系统定义的meminfo结构进行内存初始化， 最后paging_init()开启mmu，创建内核页表，映射所有的物理内存和I/O空间， 完成了创建异常向量表和初始化中断处理函数，初始化系统核心进程调度器和时钟中断处理机制，初始化串口控制台（serial<em>console）等等， 当所有的相关操作结束后，start</em> kernel（）会调用rest_ init()进行最后初始化，包括创建系统的第一个进程——init进程，init进程首先进行一系列的硬件初始化，然后通过命令行传递过来的参数挂在根文件系统，init进程会执行用户传递过来的参数执行用户指定的命令或者执行/sbin/init,/etc/init,/bin/init,/bin/sh 之一完成初始化工作，cpu_idle会被调用使系统处于闲置状态并等待用户输入。<br>这次实验重点在于linux中启动过程的进程产生于分析，正如孟宁老师所说，“道生一（start_kernel….cpu_idle），一生二（kernel_init和kthreadd），二生三（即前面0、1和2三个进程），三生万物（1号进程是所有用户态进程的祖先，2号进程是所有内核线程的祖先），这些“都符合中国传统文化精神了”，也就不难让人理解了。</p>
 
       
 
@@ -415,15 +422,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">心情</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">心情</a>
               </li>
             
             <div class="clearfix"></div>
