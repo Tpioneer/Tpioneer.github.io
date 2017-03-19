@@ -174,6 +174,70 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Linux内核分析四" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/19/Linux内核分析四/">Linux内核分析四</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/19/Linux内核分析四/" class="archive-article-date">
+  	<time datetime="2017-03-19T11:24:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、预备知识"><a href="#一、预备知识" class="headerlink" title="一、预备知识"></a>一、预备知识</h3><p>（1）用户栈与内核栈<br>内核栈：存在于内核空间，当进程在内核栈里运行时，CPU栈顶指针寄存器里面的内容是内核栈空间地址，使用内核栈。<br>用户栈：存在于用户空间，当进程在用户栈里运行时，CPU栈顶指针寄存器里面的内容是用户栈空间地址，使用用户栈。<br>（2）用户态与内核态<br>用户态：用户在非特权模式下，访问会资源会受到限制。<br>内核栈：用户在特权模式下，可随意访问资源<br>为什么要区分用户态与内核态？<br>因为在操作系统中有很多很重要的代码要保证安全性，不可被任意修改，区别用户态和内核态可访问的空间，保证了系统的安全，防止因不当操作而造成的系统崩溃。<br>在Linux中有0和3两种运行级别：0表示内核态，3表示用户态<br>
+        
+          <a class="article-more-a" href="/2017/03/19/Linux内核分析四/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/19/Linux内核分析四/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-Linux内核分析三" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -670,11 +734,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">心情</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">心情</a>
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
               </li>
             
             <div class="clearfix"></div>

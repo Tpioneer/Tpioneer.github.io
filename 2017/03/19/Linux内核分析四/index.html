@@ -6,36 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://tpioneer.github.io">
-  <title>HEXO搭建你的专属博客 | ButterFly</title>
+  <title>Linux内核分析四 | ButterFly</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="关键词：github  hexo  blog
-
-STEP1 前期准备
-在这里默认你已经拥有了github账号，如果没有，还等什么，赶快加入最大的同性交友平台吧（雾。
-
-  在github中创建一个名为username.github.io（这里的username即你的账号名，比如我的为Tpioneer.github.io）的库，创建完  后可以试着往库中push一个简单的index.html如下。">
+  <meta name="description" content="一、预备知识（1）用户栈与内核栈内核栈：存在于内核空间，当进程在内核栈里运行时，CPU栈顶指针寄存器里面的内容是内核栈空间地址，使用内核栈。用户栈：存在于用户空间，当进程在用户栈里运行时，CPU栈顶指针寄存器里面的内容是用户栈空间地址，使用用户栈。（2）用户态与内核态用户态：用户在非特权模式下，访问会资源会受到限制。内核栈：用户在特权模式下，可随意访问资源为什么要区分用户态与内核态？因为在操作系统">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HEXO搭建你的专属博客">
-<meta property="og:url" content="http://tpioneer.github.io/2017/02/21/HEXO搭建你的专属博客/index.html">
+<meta property="og:title" content="Linux内核分析四">
+<meta property="og:url" content="http://tpioneer.github.io/2017/03/19/Linux内核分析四/index.html">
 <meta property="og:site_name" content="ButterFly">
-<meta property="og:description" content="关键词：github  hexo  blog
-
-STEP1 前期准备
-在这里默认你已经拥有了github账号，如果没有，还等什么，赶快加入最大的同性交友平台吧（雾。
-
-  在github中创建一个名为username.github.io（这里的username即你的账号名，比如我的为Tpioneer.github.io）的库，创建完  后可以试着往库中push一个简单的index.html如下。">
-<meta property="og:image" content="http://tpioneer.github.io/img/deploy.png">
-<meta property="og:image" content="http://tpioneer.github.io/img/config.png">
-<meta property="og:updated_time" content="2017-02-26T06:47:25.998Z">
+<meta property="og:description" content="一、预备知识（1）用户栈与内核栈内核栈：存在于内核空间，当进程在内核栈里运行时，CPU栈顶指针寄存器里面的内容是内核栈空间地址，使用内核栈。用户栈：存在于用户空间，当进程在用户栈里运行时，CPU栈顶指针寄存器里面的内容是用户栈空间地址，使用用户栈。（2）用户态与内核态用户态：用户在非特权模式下，访问会资源会受到限制。内核栈：用户在特权模式下，可随意访问资源为什么要区分用户态与内核态？因为在操作系统">
+<meta property="og:updated_time" content="2017-03-19T12:47:38.041Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HEXO搭建你的专属博客">
-<meta name="twitter:description" content="关键词：github  hexo  blog
-
-STEP1 前期准备
-在这里默认你已经拥有了github账号，如果没有，还等什么，赶快加入最大的同性交友平台吧（雾。
-
-  在github中创建一个名为username.github.io（这里的username即你的账号名，比如我的为Tpioneer.github.io）的库，创建完  后可以试着往库中push一个简单的index.html如下。">
-<meta name="twitter:image" content="http://tpioneer.github.io/img/deploy.png">
+<meta name="twitter:title" content="Linux内核分析四">
+<meta name="twitter:description" content="一、预备知识（1）用户栈与内核栈内核栈：存在于内核空间，当进程在内核栈里运行时，CPU栈顶指针寄存器里面的内容是内核栈空间地址，使用内核栈。用户栈：存在于用户空间，当进程在用户栈里运行时，CPU栈顶指针寄存器里面的内容是用户栈空间地址，使用用户栈。（2）用户态与内核态用户态：用户在非特权模式下，访问会资源会受到限制。内核栈：用户在特权模式下，可随意访问资源为什么要区分用户态与内核态？因为在操作系统">
   
     <link rel="alternative" href="/atom.xml" title="ButterFly" type="application/atom+xml">
   
@@ -191,72 +173,27 @@ STEP1 前期准备
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-HEXO搭建你的专属博客" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Linux内核分析四" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      HEXO搭建你的专属博客
+      Linux内核分析四
     </h1>
   
 
         
-        <a href="/2017/02/21/HEXO搭建你的专属博客/" class="archive-article-date">
-  	<time datetime="2017-02-21T15:33:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-21</time>
+        <a href="/2017/03/19/Linux内核分析四/" class="archive-article-date">
+  	<time datetime="2017-03-19T11:24:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<p>关键词：github  hexo  blog</p>
-</blockquote>
-<h3 id="STEP1-前期准备"><a href="#STEP1-前期准备" class="headerlink" title="STEP1 前期准备"></a>STEP1 前期准备</h3><blockquote>
-<p>在这里默认你已经拥有了github账号，如果没有，还等什么，赶快<a href="https://github.com/" target="_blank" rel="external">加入</a>最大的同性交友平台吧（雾。</p>
-</blockquote>
-<p>  在github中创建一个名为<strong>username.github.io</strong>（这里的username即你的账号名，比如我的为Tpioneer.github.io）的库，创建完<br>  后可以试着往库中push一个简单的index.html如下。（github的简单操作可以参考如下<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">教程</a>）<br>  <a id="more"></a></p>
-<pre><code class="html"><span class="meta">&lt;!DOCTYPE html&gt;</span>
- <span class="tag">&lt;<span class="name">html</span>&gt;</span>
- <span class="tag">&lt;<span class="name">body</span>&gt;</span>
- <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello World<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>
- <span class="tag">&lt;<span class="name">p</span>&gt;</span>I'm hosted with GitHub Pages.<span class="tag">&lt;/<span class="name">p</span>&gt;</span>
- <span class="tag">&lt;/<span class="name">body</span>&gt;</span>
- <span class="tag">&lt;/<span class="name">html</span>&gt;</span>
-</code></pre>
-<blockquote>
-<p>接着在你的浏览器中输入<code>https://username.github.io/</code>（username为你的账号名），如果没什么问题的话即可访问到Hello World。<br>  同时，需要安装git，可以去<a href="https://git-scm.com/" target="_blank" rel="external">官网</a>下载。</p>
-</blockquote>
-<h3 id="STEP2-hexo环境配置与安装"><a href="#STEP2-hexo环境配置与安装" class="headerlink" title="STEP2 hexo环境配置与安装"></a>STEP2 hexo环境配置与安装</h3><blockquote>
-<p>hexo是一款基于Node.js的静态博客框架, 在安装hexo之前，我们需要先安装node.js,这里对安装不做过多介绍，<a href="https://nodejs.org/en/" target="_blank" rel="external">官网</a>的文档已经很详细了。</p>
-</blockquote>
-<p>Node和Git都安装好后,首先创建一个blog文件夹,然后进入blog目录来安装Hexo（windows用户推荐用Git Bash）。执行如下命令安装Hexo：<br>    <strong>sudo npm install -g hexo</strong></p>
-<p>安装完成后，执行init命令初始化hexo,命令：<br>    <strong>hexo init</strong><br>然后等待安装完成，即完成了hexo的安装。</p>
-<p>安装完成后需要对hexo进行配置，找到/hexo/_config.yml文件，用任意编辑器打开该文件，拉到最后找到Deployment,将其改为下图所示<br>内容：<br><img src="/img/deploy.png" alt="config"></p>
-<blockquote>
-<p>这里有个需要注意的点，在冒号后面一定要空格，否则识别不出来</p>
-</blockquote>
-<p>修改头像，同样需要打开_config.yml ，找到 <strong> avatar: </strong>这一行，然后添加头像的URL就行了，当然你也可以将头像图片放入hexo/source/img<br>目录下，然后将配置改为如下：<br><strong>avatar: /img/xxx.jpg</strong></p>
-<p>同理可以修改你的博客名，博客描述，作者等信息，这里发一张我的参考配置如下：<br><img src="/img/config.png" alt="config"></p>
-<p>当然配置文件中还有很多其他的配置选项，在这里就不一一赘述了，<a href="https://hexo.io/docs/" target="_blank" rel="external">官网</a>上提供了更详细的参考资料</p>
-<h3 id="STEP3-hexo的部署和常用命令"><a href="#STEP3-hexo的部署和常用命令" class="headerlink" title="STEP3 hexo的部署和常用命令"></a>STEP3 hexo的部署和常用命令</h3><blockquote>
-<p>部署步骤如下(建议在每次重新部署时都执行一次hexo clean)：<br>    hexo clean<br>    hexo generate (hexo g)<br>    hexo deploy (hexo d)<br>在部署完成后，在你的浏览器中输入<strong><a href="https://username.github.io/" target="_blank" rel="external">https://username.github.io/</a></strong>，大功告成，撒花<em>★,°</em>:.☆(￣▽￣)/$:<em>.°★</em> 。</p>
-</blockquote>
-<p>当然，这只是简单的部署了属于你自己的一个blog，你还需要稍微再花费点时间让你的blog更加丰富多彩。</p>
-<p>首先，你需要了解下面提供的一些常用命令：</p>
-<ul>
-<li>hexo new “postName” #新建文章</li>
-<li>hexo new page”pageName” #新建页面</li>
-<li>hexo generate #生成静态页面至public目录</li>
-<li>hexo server #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）</li>
-<li>hexo deploy #将.deploy目录部署到GitHub</li>
-<li>hexo help #查看帮助</li>
-<li>hexo version #查看Hexo的版本</li>
-</ul>
-<p>了解了这些命令，相信你写一些简单的blog已经没有什么问题了，但是中庸的官方主题肯定不会让你特别喜欢。这里有个<a href="https://www.zhihu.com/question/24422335" target="_blank" rel="external">主题集合</a>,<br>你可以在这里尽情挑选你喜欢的主题，每个主题的github中都有相应的文档，所以，大胆的去尝试吧，相信你一定能找到适合你的那个。</p>
-<p>最后，送上一份Markdown的<a href="http://www.appinn.com/markdown/basic.html" target="_blank" rel="external">语法说明书</a>,还等什么，赶快开启你的私人blog之旅吧!</p>
+        <h3 id="一、预备知识"><a href="#一、预备知识" class="headerlink" title="一、预备知识"></a>一、预备知识</h3><p>（1）用户栈与内核栈<br>内核栈：存在于内核空间，当进程在内核栈里运行时，CPU栈顶指针寄存器里面的内容是内核栈空间地址，使用内核栈。<br>用户栈：存在于用户空间，当进程在用户栈里运行时，CPU栈顶指针寄存器里面的内容是用户栈空间地址，使用用户栈。<br>（2）用户态与内核态<br>用户态：用户在非特权模式下，访问会资源会受到限制。<br>内核栈：用户在特权模式下，可随意访问资源<br>为什么要区分用户态与内核态？<br>因为在操作系统中有很多很重要的代码要保证安全性，不可被任意修改，区别用户态和内核态可访问的空间，保证了系统的安全，防止因不当操作而造成的系统崩溃。<br>在Linux中有0和3两种运行级别：0表示内核态，3表示用户态<br>   <a id="more"></a><br>（3）利用地址空间区别内核态和用户态<br>只有内核态可以访问0xc0000000以上的地址空间，0x00000000到0xbfffffff在两种状态下都可以访问<br>（4）内核态与用户态的切换<br>当进程因为硬件中断或者系统调用，而从用户态转变为内核态时，进程所使用的堆栈要从用户栈变为内核栈，此时进程进入内核态后，首先，在内核态上保存用户态堆栈上的地址，设置堆栈指针寄存器的内容为当前进程的内核栈地址，这样就完成了用户栈向内核栈的切换。<br>当进程从内核态恢复到用户态时，将内核态保存的用户态的堆栈地址恢复到栈指针寄存器，这样就完成了内核态向用户态的切换。<br>（5）系统调用<br>1.系统调用与API（应用程序编程接口）区别<br>API只是一个函数定义，而系统调用通过软中断向内核发出一个明确的请求。<br>不是每个API都对应一个特定的系统调用。首先，API可能直接提供用户态的服务(比如一些数学函数)，其次，一个单独的API可能调用几个系统调用，不同的API可能调用了同一个系统调用。<br>2.系统调用的优点<br>系统调用为用户提供了调用与硬件设备等进行交互的接口，可以将用户从底层的硬件编程中解放出来，提高系统的安全性，是用户程序具有更好的可移植性。<br>3.系统调用时执行的操作<br>1）在进程的内核态堆栈中保存大多数寄存器的内容(即保存恢复进程到用户态执行所需要的上下文)<br>2）根据用户态传递的系统调用号，确定系统调用的服务例程<br>3）调用名为系统调用服务例程的相应的C函数来处理系统调用<br>4）从系统调用返回 </p>
 
       
 
@@ -270,7 +207,7 @@ STEP1 前期准备
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
@@ -326,7 +263,7 @@ STEP1 前期准备
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://tpioneer.github.io/2017/02/21/HEXO搭建你的专属博客/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://tpioneer.github.io/2017/03/19/Linux内核分析四/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -340,15 +277,11 @@ STEP1 前期准备
   
 <nav id="article-nav">
   
-    <a href="/2017/02/22/前端入门笔记（一）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          前端入门笔记一——html5语义化标签
-        
-      </div>
-    </a>
   
+    <a href="/2017/03/12/Linux内核分析三/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux内核分析三——跟踪分析Linux内核的启动过程</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
