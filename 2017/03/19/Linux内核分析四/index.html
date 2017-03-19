@@ -14,10 +14,16 @@
 <meta property="og:url" content="http://tpioneer.github.io/2017/03/19/Linux内核分析四/index.html">
 <meta property="og:site_name" content="ButterFly">
 <meta property="og:description" content="一、预备知识（1）用户栈与内核栈内核栈：存在于内核空间，当进程在内核栈里运行时，CPU栈顶指针寄存器里面的内容是内核栈空间地址，使用内核栈。用户栈：存在于用户空间，当进程在用户栈里运行时，CPU栈顶指针寄存器里面的内容是用户栈空间地址，使用用户栈。（2）用户态与内核态用户态：用户在非特权模式下，访问会资源会受到限制。内核栈：用户在特权模式下，可随意访问资源为什么要区分用户态与内核态？因为在操作系统">
-<meta property="og:updated_time" content="2017-03-19T12:47:38.041Z">
+<meta property="og:image" content="https://dn-simplecloud.shiyanlou.com/2651671489936898870-wm">
+<meta property="og:image" content="https://dn-simplecloud.shiyanlou.com/2651671489937267207-wm">
+<meta property="og:image" content="https://dn-simplecloud.shiyanlou.com/2651671489937318021-wm">
+<meta property="og:image" content="https://dn-simplecloud.shiyanlou.com/2651671489937775527-wm">
+<meta property="og:image" content="https://dn-simplecloud.shiyanlou.com/2651671489938292592-wm">
+<meta property="og:updated_time" content="2017-03-19T15:55:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux内核分析四">
 <meta name="twitter:description" content="一、预备知识（1）用户栈与内核栈内核栈：存在于内核空间，当进程在内核栈里运行时，CPU栈顶指针寄存器里面的内容是内核栈空间地址，使用内核栈。用户栈：存在于用户空间，当进程在用户栈里运行时，CPU栈顶指针寄存器里面的内容是用户栈空间地址，使用用户栈。（2）用户态与内核态用户态：用户在非特权模式下，访问会资源会受到限制。内核栈：用户在特权模式下，可随意访问资源为什么要区分用户态与内核态？因为在操作系统">
+<meta name="twitter:image" content="https://dn-simplecloud.shiyanlou.com/2651671489936898870-wm">
   
     <link rel="alternative" href="/atom.xml" title="ButterFly" type="application/atom+xml">
   
@@ -194,6 +200,23 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="一、预备知识"><a href="#一、预备知识" class="headerlink" title="一、预备知识"></a>一、预备知识</h3><p>（1）用户栈与内核栈<br>内核栈：存在于内核空间，当进程在内核栈里运行时，CPU栈顶指针寄存器里面的内容是内核栈空间地址，使用内核栈。<br>用户栈：存在于用户空间，当进程在用户栈里运行时，CPU栈顶指针寄存器里面的内容是用户栈空间地址，使用用户栈。<br>（2）用户态与内核态<br>用户态：用户在非特权模式下，访问会资源会受到限制。<br>内核栈：用户在特权模式下，可随意访问资源<br>为什么要区分用户态与内核态？<br>因为在操作系统中有很多很重要的代码要保证安全性，不可被任意修改，区别用户态和内核态可访问的空间，保证了系统的安全，防止因不当操作而造成的系统崩溃。<br>在Linux中有0和3两种运行级别：0表示内核态，3表示用户态<br>   <a id="more"></a><br>（3）利用地址空间区别内核态和用户态<br>只有内核态可以访问0xc0000000以上的地址空间，0x00000000到0xbfffffff在两种状态下都可以访问<br>（4）内核态与用户态的切换<br>当进程因为硬件中断或者系统调用，而从用户态转变为内核态时，进程所使用的堆栈要从用户栈变为内核栈，此时进程进入内核态后，首先，在内核态上保存用户态堆栈上的地址，设置堆栈指针寄存器的内容为当前进程的内核栈地址，这样就完成了用户栈向内核栈的切换。<br>当进程从内核态恢复到用户态时，将内核态保存的用户态的堆栈地址恢复到栈指针寄存器，这样就完成了内核态向用户态的切换。<br>（5）系统调用<br>1.系统调用与API（应用程序编程接口）区别<br>API只是一个函数定义，而系统调用通过软中断向内核发出一个明确的请求。<br>不是每个API都对应一个特定的系统调用。首先，API可能直接提供用户态的服务(比如一些数学函数)，其次，一个单独的API可能调用几个系统调用，不同的API可能调用了同一个系统调用。<br>2.系统调用的优点<br>系统调用为用户提供了调用与硬件设备等进行交互的接口，可以将用户从底层的硬件编程中解放出来，提高系统的安全性，是用户程序具有更好的可移植性。<br>3.系统调用时执行的操作<br>1）在进程的内核态堆栈中保存大多数寄存器的内容(即保存恢复进程到用户态执行所需要的上下文)<br>2）根据用户态传递的系统调用号，确定系统调用的服务例程<br>3）调用名为系统调用服务例程的相应的C函数来处理系统调用<br>4）从系统调用返回 </p>
+<h3 id="二、实验过程"><a href="#二、实验过程" class="headerlink" title="二、实验过程"></a>二、实验过程</h3><p>1.首先看下示例的time程序，代码如下所示：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;time.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">time_t</span> tt;         </div><div class="line">    <span class="keyword">struct</span> tm *t;</div><div class="line">    tt = time(<span class="literal">NULL</span>);</div><div class="line">    t = localtime(&amp;tt);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"time:%d/%d/%d ,%d:%d:%d\n"</span>,t-&gt;tm_year+<span class="number">1900</span>,t-&gt;tm_mon,t-&gt;tm_mday,t-&gt;tm_hour,t-&gt;tm_min,t-&gt;tm_sec);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>用<strong>gcc time.c -o time -m32</strong>编译后，输出结果如下所示：<br><img src="https://dn-simplecloud.shiyanlou.com/2651671489936898870-wm" alt="实验楼"></p>
+<p>2.利用内嵌汇编代码的方式来实现上面的程序，代码如下所示：<br><img src="https://dn-simplecloud.shiyanlou.com/2651671489937267207-wm" alt="实验楼"></p>
+<p>程序执行结果如下：<br><img src="https://dn-simplecloud.shiyanlou.com/2651671489937318021-wm" alt="实验楼"></p>
+<p>3.实现一个简单的printf的程序，输出Hello，Linux,代码如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdio.h"</span>  </span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"string.h"</span>  </span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></div><div class="line">&#123;  </div><div class="line">    <span class="keyword">char</span>* msg = <span class="string">"Hello Linux"</span>;  </div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%s"</span>, msg);  </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>编译运行结果如下：<br><img src="https://dn-simplecloud.shiyanlou.com/2651671489937775527-wm" alt="实验楼"></p>
+<p>4.再用内嵌汇编代码的方式来实现printf，系统调用号为4，代码如下所示:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdio.h"</span>  </span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"string.h"</span> </span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></div><div class="line">&#123;  </div><div class="line">    <span class="keyword">char</span>* msg = <span class="string">"Hello Linux"</span>;  </div><div class="line">    <span class="keyword">int</span> len = <span class="number">11</span>;  </div><div class="line">    <span class="keyword">int</span> result = <span class="number">0</span>;  </div><div class="line">    __asm__ __volatile__(<span class="string">"movl %2, %%edx;\n\r"</span> </div><div class="line">        <span class="string">"movl %1, %%ecx;\n\r"</span></div><div class="line">        <span class="string">"movl $1, %%ebx;\n\r"</span>\ </div><div class="line">        <span class="string">"movl $4, %%eax;\n\r"</span> </div><div class="line">        <span class="string">"int  $0x80"</span>   </div><div class="line">        :<span class="string">"=m"</span>(result) </div><div class="line">        :<span class="string">"m"</span>(msg),<span class="string">"r"</span>(len)   </div><div class="line">        :<span class="string">"%eax"</span>);   </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>编译运行结果如下：<br><img src="https://dn-simplecloud.shiyanlou.com/2651671489938292592-wm" alt="实验楼"></p>
+<h3 id="三、总结"><a href="#三、总结" class="headerlink" title="三、总结"></a>三、总结</h3><p>Linux 下的系统调用是通过中断（int 0x80）来实现的。在执行 int 80 指令时，寄存器 eax 中存放的是系统调用的功能号，而传给系统调用的参数则必须按顺序放到寄存器 ebx，ecx，edx，esi，edi 中，当系统调用完成之后，返回值可以在寄存器 eax 中获得。<br>所有的系统调用功能号都可以在文件 /usr/include/bits/syscall.h 中找到，为了便于使用，它们是用 SYS_<name> 这样的宏来定义的，如 SYS_write、SYS_exit 等。例如，经常用到的 write 函数是如下定义的：</name></p>
+<blockquote>
+<p>ssize_t write(int fd, const void *buf, size_t count);</p>
+</blockquote>
+<p>该函数的功能最终是通过 SYS_write 这一系统调用来实现的。根据上面的约定，参数 fb、buf 和 count 分别存在寄存器 ebx、ecx 和 edx 中，而系统调用号 SYS_write 则放在寄存器 eax 中，当 int 0x80 指令执行完毕后，返回值可以从寄存器 eax 中获得。<br>或许你已经发现，在进行系统调用时至多只有 5 个寄存器能够用来保存参数，难道所有系统调用的参数个数都不超过 5 吗？当然不是，例如 mmap 函数就有 6 个参数，这些参数最后都需要传递给系统调用 SYS_mmap：</p>
+<blockquote>
+<p>void  <em>  mmap(void </em>start, size_t length, int prot , int flags, int fd, off_t offset);</p>
+</blockquote>
+<p>当一个系统调用所需的参数个数大于 5 时，执行int 0x80 指令时仍需将系统调用功能号保存在寄存器 eax 中，所不同的只是全部参数应该依次放在一块连续的内存区域里，同时在寄存器 ebx 中保存指向该内存区域的指针。系统调用完成之后，返回值仍将保存在寄存器 eax 中。<br>由于只是需要一块连续的内存区域来保存系统调用的参数，因此完全可以像普通的函数调用一样使用栈(stack)来传递系统调用所需的参数。但要注意一点，Linux 采用的是 C 语言的调用模式，这就意味着所有参数必须以相反的顺序进栈，即最后一个参数先入栈，而第一个参数则最后入栈。如果采用栈来传递系统调用所需的参数，在执行int 0x80 指令时还应该将栈指针的当前值复制到寄存器 ebx中。<br>今天的实验可以形象化的将其记忆为：系统调用可以看成三层皮：API函数，system_ call,sys _xxx()系统调用服务例程。 </p>
 
       
 
@@ -383,15 +406,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">心情</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">学习</a>
               </li>
             
             <div class="clearfix"></div>
