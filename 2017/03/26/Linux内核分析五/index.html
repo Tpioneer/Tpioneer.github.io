@@ -6,36 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://tpioneer.github.io">
-  <title>HEXO搭建你的专属博客 | ButterFly</title>
+  <title>Linux内核分析五 | ButterFly</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="关键词：github  hexo  blog
+  <meta name="description" content="陶先锋 原创作品转载请注明出处 《Linux内核分析》MOOC课程 http://mooc.study.163.com/course/USTC-1000029000
 
-STEP1 前期准备
-在这里默认你已经拥有了github账号，如果没有，还等什么，赶快加入最大的同性交友平台吧（雾。
-
-  在github中创建一个名为username.github.io（这里的username即你的账号名，比如我的为Tpioneer.github.io）的库，创建完  后可以试着往库中push一个简单的index.html如下。">
+一、实践1.使用gdb跟踪分析4号系统调用内核函数：sys_write在test.c中增加我编写的两个函数：MyPrint()和MyPrintAsm(),这两个函数的作用是输出一条msg，代码如下：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HEXO搭建你的专属博客">
-<meta property="og:url" content="http://tpioneer.github.io/2017/02/21/HEXO搭建你的专属博客/index.html">
+<meta property="og:title" content="Linux内核分析五">
+<meta property="og:url" content="http://tpioneer.github.io/2017/03/26/Linux内核分析五/index.html">
 <meta property="og:site_name" content="ButterFly">
-<meta property="og:description" content="关键词：github  hexo  blog
+<meta property="og:description" content="陶先锋 原创作品转载请注明出处 《Linux内核分析》MOOC课程 http://mooc.study.163.com/course/USTC-1000029000
 
-STEP1 前期准备
-在这里默认你已经拥有了github账号，如果没有，还等什么，赶快加入最大的同性交友平台吧（雾。
-
-  在github中创建一个名为username.github.io（这里的username即你的账号名，比如我的为Tpioneer.github.io）的库，创建完  后可以试着往库中push一个简单的index.html如下。">
-<meta property="og:image" content="http://tpioneer.github.io/img/deploy.png">
-<meta property="og:image" content="http://tpioneer.github.io/img/config.png">
-<meta property="og:updated_time" content="2017-02-26T06:47:25.998Z">
+一、实践1.使用gdb跟踪分析4号系统调用内核函数：sys_write在test.c中增加我编写的两个函数：MyPrint()和MyPrintAsm(),这两个函数的作用是输出一条msg，代码如下：">
+<meta property="og:image" content="https://dn-simplecloud.shiyanlou.com/2651671490185031197-wm">
+<meta property="og:image" content="https://dn-simplecloud.shiyanlou.com/2651671490185031197-wm">
+<meta property="og:updated_time" content="2017-03-26T02:55:00.682Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HEXO搭建你的专属博客">
-<meta name="twitter:description" content="关键词：github  hexo  blog
+<meta name="twitter:title" content="Linux内核分析五">
+<meta name="twitter:description" content="陶先锋 原创作品转载请注明出处 《Linux内核分析》MOOC课程 http://mooc.study.163.com/course/USTC-1000029000
 
-STEP1 前期准备
-在这里默认你已经拥有了github账号，如果没有，还等什么，赶快加入最大的同性交友平台吧（雾。
-
-  在github中创建一个名为username.github.io（这里的username即你的账号名，比如我的为Tpioneer.github.io）的库，创建完  后可以试着往库中push一个简单的index.html如下。">
-<meta name="twitter:image" content="http://tpioneer.github.io/img/deploy.png">
+一、实践1.使用gdb跟踪分析4号系统调用内核函数：sys_write在test.c中增加我编写的两个函数：MyPrint()和MyPrintAsm(),这两个函数的作用是输出一条msg，代码如下：">
+<meta name="twitter:image" content="https://dn-simplecloud.shiyanlou.com/2651671490185031197-wm">
   
     <link rel="alternative" href="/atom.xml" title="ButterFly" type="application/atom+xml">
   
@@ -191,20 +182,20 @@ STEP1 前期准备
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-HEXO搭建你的专属博客" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Linux内核分析五" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      HEXO搭建你的专属博客
+      Linux内核分析五
     </h1>
   
 
         
-        <a href="/2017/02/21/HEXO搭建你的专属博客/" class="archive-article-date">
-  	<time datetime="2017-02-21T15:33:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-21</time>
+        <a href="/2017/03/26/Linux内核分析五/" class="archive-article-date">
+  	<time datetime="2017-03-26T02:24:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-26</time>
 </a>
         
       </header>
@@ -212,51 +203,26 @@ STEP1 前期准备
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>关键词：github  hexo  blog</p>
+<p>陶先锋 原创作品转载请注明出处 《Linux内核分析》MOOC课程 <a href="http://mooc.study.163.com/course/USTC-1000029000" target="_blank" rel="external">http://mooc.study.163.com/course/USTC-1000029000</a></p>
 </blockquote>
-<h3 id="STEP1-前期准备"><a href="#STEP1-前期准备" class="headerlink" title="STEP1 前期准备"></a>STEP1 前期准备</h3><blockquote>
-<p>在这里默认你已经拥有了github账号，如果没有，还等什么，赶快<a href="https://github.com/" target="_blank" rel="external">加入</a>最大的同性交友平台吧（雾。</p>
-</blockquote>
-<p>  在github中创建一个名为<strong>username.github.io</strong>（这里的username即你的账号名，比如我的为Tpioneer.github.io）的库，创建完<br>  后可以试着往库中push一个简单的index.html如下。（github的简单操作可以参考如下<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">教程</a>）<br>  <a id="more"></a></p>
-<pre><code class="html"><span class="meta">&lt;!DOCTYPE html&gt;</span>
- <span class="tag">&lt;<span class="name">html</span>&gt;</span>
- <span class="tag">&lt;<span class="name">body</span>&gt;</span>
- <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello World<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>
- <span class="tag">&lt;<span class="name">p</span>&gt;</span>I'm hosted with GitHub Pages.<span class="tag">&lt;/<span class="name">p</span>&gt;</span>
- <span class="tag">&lt;/<span class="name">body</span>&gt;</span>
- <span class="tag">&lt;/<span class="name">html</span>&gt;</span>
-</code></pre>
+<h3 id="一、实践"><a href="#一、实践" class="headerlink" title="一、实践"></a>一、实践</h3><p>1.使用gdb跟踪分析4号系统调用内核函数：sys_write<br>在test.c中增加我编写的两个函数：MyPrint()和MyPrintAsm(),这两个函数的作用是输出一条msg，代码如下：<br><a id="more"></a><br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">MyPrint</span><span class="params">()</span>  </span></div><div class="line">&#123;  </div><div class="line">        <span class="keyword">char</span>* msg = <span class="string">"Hello Linux"</span>;  </div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%s"</span>, msg);  </div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">MyPrintAsm</span><span class="params">()</span>  </span></div><div class="line">&#123;  </div><div class="line">    <span class="keyword">char</span>* msg = <span class="string">"Hello Linux"</span>;  </div><div class="line">    <span class="keyword">int</span> len = <span class="number">11</span>;  </div><div class="line">    <span class="keyword">int</span> result = <span class="number">0</span>;  </div><div class="line">    __asm__ __volatile__(<span class="string">"movl %2, %%edx;\n\r"</span> </div><div class="line">          <span class="string">"movl %1, %%ecx;\n\r"</span></div><div class="line">          <span class="string">"movl $1, %%ebx;\n\r"</span> </div><div class="line">          <span class="string">"movl $4, %%eax;\n\r"</span></div><div class="line">          <span class="string">"int  $0x80"</span>   </div><div class="line">          :<span class="string">"=m"</span>(result)</div><div class="line">          :<span class="string">"m"</span>(msg),<span class="string">"r"</span>(len)   </div><div class="line">          :<span class="string">"%eax"</span>);   </div><div class="line">          <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>在main函数中增加两个函数的MenuConfig命令项：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">MenuConfig(<span class="string">"hello"</span>,<span class="string">"print hello info"</span>,MyPrint);</div><div class="line">MenuConfig(<span class="string">"hello-asm"</span>,<span class="string">"print hello info(asm)"</span>,MyPrintAsm);</div></pre></td></tr></table></figure></p>
+<p>将修改后的menu放入LinuxKernel目录下，执行menu下的makefile编译运行menuOS，在MenuOS中输入help，可以查看当前所有的系统调用，分别执行hello、hello-asm进行系统调用，结果如下图所示：<br><img src="https://dn-simplecloud.shiyanlou.com/2651671490185031197-wm" alt="实验楼"></p>
+<h3 id="二、调试内核"><a href="#二、调试内核" class="headerlink" title="二、调试内核"></a>二、调试内核</h3><p>1.使用gdb跟踪调试内核</p>
 <blockquote>
-<p>接着在你的浏览器中输入<code>https://username.github.io/</code>（username为你的账号名），如果没什么问题的话即可访问到Hello World。<br>  同时，需要安装git，可以去<a href="https://git-scm.com/" target="_blank" rel="external">官网</a>下载。</p>
+<p>qemu -kernel linux-3.18.6/arch/x86/boot/bzImage -initrd rootfs.img -s -S<br>gdb<br>（gdb）file linux-3.18.6/vmlinux<br>（gdb）target remote:1234<br>b sys_time：在系统调用time的位置设置断点<br>c：在MenuOs里使用time，停在断点处<br>s 单步调试—一步一步执行（PS：无法执行time_asm中的int 0X80部分）</p>
 </blockquote>
-<h3 id="STEP2-hexo环境配置与安装"><a href="#STEP2-hexo环境配置与安装" class="headerlink" title="STEP2 hexo环境配置与安装"></a>STEP2 hexo环境配置与安装</h3><blockquote>
-<p>hexo是一款基于Node.js的静态博客框架, 在安装hexo之前，我们需要先安装node.js,这里对安装不做过多介绍，<a href="https://nodejs.org/en/" target="_blank" rel="external">官网</a>的文档已经很详细了。</p>
-</blockquote>
-<p>Node和Git都安装好后,首先创建一个blog文件夹,然后进入blog目录来安装Hexo（windows用户推荐用Git Bash）。执行如下命令安装Hexo：<br>    <strong>sudo npm install -g hexo</strong></p>
-<p>安装完成后，执行init命令初始化hexo,命令：<br>    <strong>hexo init</strong><br>然后等待安装完成，即完成了hexo的安装。</p>
-<p>安装完成后需要对hexo进行配置，找到/hexo/_config.yml文件，用任意编辑器打开该文件，拉到最后找到Deployment,将其改为下图所示<br>内容：<br><img src="/img/deploy.png" alt="config"></p>
+<p>调试如下所示：<br><img src="https://dn-simplecloud.shiyanlou.com/2651671490185031197-wm" alt="实验楼"><br>可以看到，在输入hello指令后，系统调用了sys_write函数来进行输出。</p>
+<h3 id="三、分析系统调用在内核代码中的处理过程"><a href="#三、分析系统调用在内核代码中的处理过程" class="headerlink" title="三、分析系统调用在内核代码中的处理过程"></a>三、分析系统调用在内核代码中的处理过程</h3><p>1.系统调用在内核代码中的工作机制和初始化</p>
+<p>main.c中start_kernel函数：trap_init()<br>set_system_trap_gate(SYSCALL_VECTOR,&amp;system_call)<br>SYSCALL_VECTOR：系统调用的中断向量<br>&amp;system_call：汇编代码入口<br>一执行int 0x80，系统直接跳转到system_call。</p>
+<p>2.系统调用——一个特殊的中断          </p>
 <blockquote>
-<p>这里有个需要注意的点，在冒号后面一定要空格，否则识别不出来</p>
+<p>SAVE_ALL：保存现场<br>call *sys_call_table(,%eax,4)调用了系统调度处理函数，eax存的是系统调用号，是实际的系统调度程序。<br>sys_call_table：系统调用分派表<br>syscall_after_all：保存返回值<br>若有sys_exit_work，则进入sys_exit_work:会有一个进程调度时机。<br>work_pending -&gt; work_notifysig，用来处理信号<br>可能call schedule：进程调度代码<br>可能跳转到restore_all，恢复现场。<br>若无sys_exit_work，就执行restore_all恢复，返回用户态。<br>INTERRUPT_RETURN &lt;=&gt; iret，结束。</p>
 </blockquote>
-<p>修改头像，同样需要打开_config.yml ，找到 <strong> avatar: </strong>这一行，然后添加头像的URL就行了，当然你也可以将头像图片放入hexo/source/img<br>目录下，然后将配置改为如下：<br><strong>avatar: /img/xxx.jpg</strong></p>
-<p>同理可以修改你的博客名，博客描述，作者等信息，这里发一张我的参考配置如下：<br><img src="/img/config.png" alt="config"></p>
-<p>当然配置文件中还有很多其他的配置选项，在这里就不一一赘述了，<a href="https://hexo.io/docs/" target="_blank" rel="external">官网</a>上提供了更详细的参考资料</p>
-<h3 id="STEP3-hexo的部署和常用命令"><a href="#STEP3-hexo的部署和常用命令" class="headerlink" title="STEP3 hexo的部署和常用命令"></a>STEP3 hexo的部署和常用命令</h3><blockquote>
-<p>部署步骤如下(建议在每次重新部署时都执行一次hexo clean)：<br>    hexo clean<br>    hexo generate (hexo g)<br>    hexo deploy (hexo d)<br>在部署完成后，在你的浏览器中输入<strong><a href="https://username.github.io/" target="_blank" rel="external">https://username.github.io/</a></strong>，大功告成，撒花<em>★,°</em>:.☆(￣▽￣)/$:<em>.°★</em> 。</p>
-</blockquote>
-<p>当然，这只是简单的部署了属于你自己的一个blog，你还需要稍微再花费点时间让你的blog更加丰富多彩。</p>
-<p>首先，你需要了解下面提供的一些常用命令：</p>
 <ul>
-<li>hexo new “postName” #新建文章</li>
-<li>hexo new page”pageName” #新建页面</li>
-<li>hexo generate #生成静态页面至public目录</li>
-<li>hexo server #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）</li>
-<li>hexo deploy #将.deploy目录部署到GitHub</li>
-<li>hexo help #查看帮助</li>
-<li>hexo version #查看Hexo的版本</li>
+<li>在系统调用返回之前，可能发生进程调度，进程调度里就会出现进程上下文的切换。- 进程间通信可能有信号需要处理。- 可以将内核视为一系列中断指令的集合。</li>
 </ul>
-<p>了解了这些命令，相信你写一些简单的blog已经没有什么问题了，但是中庸的官方主题肯定不会让你特别喜欢。这里有个<a href="https://www.zhihu.com/question/24422335" target="_blank" rel="external">主题集合</a>,<br>你可以在这里尽情挑选你喜欢的主题，每个主题的github中都有相应的文档，所以，大胆的去尝试吧，相信你一定能找到适合你的那个。</p>
-<p>最后，送上一份Markdown的<a href="http://www.appinn.com/markdown/basic.html" target="_blank" rel="external">语法说明书</a>,还等什么，赶快开启你的私人blog之旅吧!</p>
+<h3 id="四、总结：从系统调用处理过程到一般的中断处理过程"><a href="#四、总结：从系统调用处理过程到一般的中断处理过程" class="headerlink" title="四、总结：从系统调用处理过程到一般的中断处理过程"></a>四、总结：从系统调用处理过程到一般的中断处理过程</h3><p>系统调用就是特殊的一种中断<br>1.保存现场<br>在系统调用时，我们需要SAVE_ALL，用于保存系统调用时的上下文。同样，中断处理的第一步应该也要保存中断程序现场。目的：在中断处理完之后，可以返回到原来被中断的地方，在原有的运行环境下继续正确的执行下去。<br>2.确定中断信息<br>在系统调用时，我们需要将系统调用号通过eax传入，通过sys_call_table查询到调用的系统调用。同样，中断处理时系统也需要有一个中断号，通过检索中断向量表，了解中断的类型和设备。<br>3.处理中断<br>跳转到相应的中断处理程序后，对中断进行处理。<br>4.返回<br>系统调用时最后要restore_all恢复系统调用时的现场，并用iret返回用户态。同样，执行完中断处理程序，内核也要执行特定指令序列，恢复中断时现场，并使得进程回到用户态。</p>
 
       
 
@@ -270,7 +236,7 @@ STEP1 前期准备
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
@@ -326,7 +292,7 @@ STEP1 前期准备
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://tpioneer.github.io/2017/02/21/HEXO搭建你的专属博客/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://tpioneer.github.io/2017/03/26/Linux内核分析五/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -340,15 +306,11 @@ STEP1 前期准备
   
 <nav id="article-nav">
   
-    <a href="/2017/02/22/前端入门笔记（一）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          前端入门笔记一——html5语义化标签
-        
-      </div>
-    </a>
   
+    <a href="/2017/03/19/Linux内核分析四/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux内核分析四</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
