@@ -6,17 +6,30 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://tpioneer.github.io">
-  <title>Archives | ButterFly</title>
+  <title>Linux内核分析七 | ButterFly</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前端新人，热爱技术">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ButterFly">
-<meta property="og:url" content="http://tpioneer.github.io/archives/page/2/index.html">
+  <meta name="description" content="陶先锋 原创作品转载请注明出处 《Linux内核分析》MOOC课程 http://mooc.study.163.com/course/USTC-1000029000
+
+一、基础理论1、编译链接的过程和ELF可执行文件格式1.1 编译链接的过程源文件生成可执行文件的过程主要包括三个部分：预处理：主要是编译器对各种预处理命令进行处理，包括头文件的包含、宏定义的扩展、条件编译的选择等；编译：把作为中间">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux内核分析七">
+<meta property="og:url" content="http://tpioneer.github.io/2017/04/09/Linux内核分析七/index.html">
 <meta property="og:site_name" content="ButterFly">
-<meta property="og:description" content="前端新人，热爱技术">
+<meta property="og:description" content="陶先锋 原创作品转载请注明出处 《Linux内核分析》MOOC课程 http://mooc.study.163.com/course/USTC-1000029000
+
+一、基础理论1、编译链接的过程和ELF可执行文件格式1.1 编译链接的过程源文件生成可执行文件的过程主要包括三个部分：预处理：主要是编译器对各种预处理命令进行处理，包括头文件的包含、宏定义的扩展、条件编译的选择等；编译：把作为中间">
+<meta property="og:image" content="http://olz5bd5zj.bkt.clouddn.com/linux7-2.png">
+<meta property="og:image" content="http://olz5bd5zj.bkt.clouddn.com/linux7-3.png">
+<meta property="og:image" content="https://dn-simplecloud.shiyanlou.com/2655541491641901033-wm">
+<meta property="og:image" content="https://dn-simplecloud.shiyanlou.com/2655541491642498143-wm">
+<meta property="og:image" content="https://dn-simplecloud.shiyanlou.com/2655541491643077988-wm">
+<meta property="og:updated_time" content="2017-04-09T11:57:43.679Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ButterFly">
-<meta name="twitter:description" content="前端新人，热爱技术">
+<meta name="twitter:title" content="Linux内核分析七">
+<meta name="twitter:description" content="陶先锋 原创作品转载请注明出处 《Linux内核分析》MOOC课程 http://mooc.study.163.com/course/USTC-1000029000
+
+一、基础理论1、编译链接的过程和ELF可执行文件格式1.1 编译链接的过程源文件生成可执行文件的过程主要包括三个部分：预处理：主要是编译器对各种预处理命令进行处理，包括头文件的包含、宏定义的扩展、条件编译的选择等；编译：把作为中间">
+<meta name="twitter:image" content="http://olz5bd5zj.bkt.clouddn.com/linux7-2.png">
   
     <link rel="alternative" href="/atom.xml" title="ButterFly" type="application/atom+xml">
   
@@ -172,36 +185,44 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Linux内核分析七" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/24/Linux内核分析一/" class="archive-article-date">
-  	<time datetime="2017-02-24T05:38:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-24</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/24/Linux内核分析一/">Linux内核分析一 ——计算机如何工作</a>
+    <h1 class="article-title" itemprop="name">
+      Linux内核分析七
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/04/09/Linux内核分析七/" class="archive-article-date">
+  	<time datetime="2017-04-09T11:22:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>陶先锋 原创作品转载请注明出处 《Linux内核分析》MOOC课程 <a href="http://mooc.study.163.com/course/USTC-1000029000" target="_blank" rel="external">http://mooc.study.163.com/course/USTC-1000029000</a></p>
+</blockquote>
+<h3 id="一、基础理论"><a href="#一、基础理论" class="headerlink" title="一、基础理论"></a>一、基础理论</h3><h4 id="1、编译链接的过程和ELF可执行文件格式"><a href="#1、编译链接的过程和ELF可执行文件格式" class="headerlink" title="1、编译链接的过程和ELF可执行文件格式"></a>1、编译链接的过程和ELF可执行文件格式</h4><p>1.1 编译链接的过程<br>源文件生成可执行文件的过程主要包括三个部分：<br>预处理：主要是编译器对各种预处理命令进行处理，包括头文件的包含、宏定义的扩展、条件编译的选择等；<br>编译：把作为中间结果的汇编代码翻译成了机器代码，即目标代码，不过它还不可以运行；<br>链接：链接是处理可重定位文件，把它们的各种符号引用和符号定义转换为可执行文件中的合适信息（一般是虚拟内存地址）的过程。链接又分为静态链接和动态链接，前者是程序开发阶段程序员用ld（gcc实际上在后台调用了ld）静态链接器手动链接的过程，而动态链接则是程序运行期间系统调用动态链接器(ld-linux.so)自动链接的过程<br>分析：以hello.c源文件为例<br>      （1）预处理阶段：gcc -E -o hello.cpp hello.c -m32 将hello.c文件预处理成hello.cpp文件；预处理负责把include的文件包含进来及宏替换等工作。<br>      （2） 编译阶段：gcc -x cpp-output -S -o hello.s hello.cpp -m32 将hello.cpp文件编译成hello.s汇编代码<br>      （3）链接阶段：gcc -x assembler -c hello.s -o hello.o -m32 将目标文件链接成可执行文件hello<br><a id="more"></a><br>1.2 ELF可执行文件格式<br>        ELF文件由4部分组成：ELF头（ELF header）、程序头表（Program header table）、节（Section）和节头表（Section header table）。实际上，一个文件中不一定包含全部内容，而且他们的位置也未必如同所示这样安排，只有ELF头的位置是固定的，其余各部分的位置、大小等信息由ELF头中的各项值来决定。<br>        一个ELF头文件在文件的开始，保存了路线图（road map），描述了该文件的组织情况。程序头表（program header table）告诉系统如何来创建一个进程的内存映像。Section头表（section header table）包含了描述文件sections的信息。每个section在这个表中有一个入口；每个入口给出了该section的名字，大小。<br>       当创建或增加一个进程映像的时候，系统在理论上将拷贝一个文件的段到一个虚拟的内存段。<br>ELF可执行文件分为三种：<br>一个可重定位（relocatable）文件保存着代码和适当的数据用来和其他的object文件一起来创建一个可执行文件或者一个共享文件；主要是.o文件；<br>一个可执行文件（executable）文件保存着一个用来执行的程序；该文件指出了exec（BA_OS）如何来创建程序进程映像；<br>一个共享object文件保存着代码和合适的数据，用来被下面的两个链接器链接。第一个是连接编辑器，可以和其他的可重定位和共享object文件来创建其他的object。第二个是动态链接器，联合一个可执行文件和其他的共享object文件来闯进一个进程映像。主要是.so文件。<br>Elf header格式代码如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span>&#123;  </div><div class="line"><span class="keyword">unsigned</span> <span class="keyword">char</span> e_ident[EI_NIDENT];  </div><div class="line">Elf32_Half e_type;  </div><div class="line">Elf32_Half e_machine;  </div><div class="line">Elf32_Word e_version;  </div><div class="line">Elf32_Addr e_entry;  </div><div class="line">Elf32_Off e_phoff;  </div><div class="line">Elf32_Off e_shoff;  </div><div class="line">Elf32_Word e_flags;  </div><div class="line">Elf32_Half e_ehsize;  </div><div class="line">Elf32_Half e_phentsize;  </div><div class="line">Elf32_Half e_phnum;  </div><div class="line">Elf32_Half e_shentsize;  </div><div class="line">Elf32_Half e_shnum;  </div><div class="line">Elf32_Half e_shstrndx;  </div><div class="line">lf32_Ehdr;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="http://olz5bd5zj.bkt.clouddn.com/linux7-2.png" alt="实验楼"><br>数据类型说明：<br><img src="http://olz5bd5zj.bkt.clouddn.com/linux7-3.png" alt="实验楼"></p>
+<p>2、静态链接和动态链接<br>2.1 静态链接<br>        静态链接在程序的编译期完成的链接。<br>        静态链接的ELF可执行文件与进程的地址空间，ELF头文件地址：0x08048000<br>        程序的实际入口：Entry point address：0x08048300；可执行文件加载带内存中开始执行的第一行代码。一般静态链接会将所有代码放在一个代码段。<br>2.2 动态链接<br>        动态链接在程序的运行期完成的链接。<br>        动态链接分为可执行程序装载时动态链接和运行时动态链接。</p>
+<h3 id="二、实验过程"><a href="#二、实验过程" class="headerlink" title="二、实验过程"></a>二、实验过程</h3><p>1 打开实验楼虚拟机环境，进入LinuxKernel文件夹，然后替换menu重新编译， 使用qemu命令进入跟踪调试环境，设置断点：sys_execve，如下图所示：<br><img src="https://dn-simplecloud.shiyanlou.com/2655541491641901033-wm" alt="实验楼"></p>
+<p>2 执行程序，进入sys_execve系统调用，单步执行sys_execve系统调用的指令，如下图所示：<br><img src="https://dn-simplecloud.shiyanlou.com/2655541491642498143-wm" alt="实验楼"></p>
+<p>3 执行start_thread函数，这里的new_ip是返回到用户态的第一条指令的地址，在这里我们通过readelf命令，可以看到可执行文件hello的第一条指令地址就是：0x8048d0a<br><img src="https://dn-simplecloud.shiyanlou.com/2655541491643077988-wm" alt="实验楼"></p>
+<h3 id="三、实验分析"><a href="#三、实验分析" class="headerlink" title="三、实验分析"></a>三、实验分析</h3><p>（1）内核是如何支持多种不同可执行文件格式的？<br>         Load_elf_binary-&gt;start-thread中：调用这个函数是实现修改内核堆栈中EIP的值作为新程序的起点。New_id是通过start_thread函数中第二个参数elf_entry来传递。<br>（2）命令行参数和环境变量是如何保存和传递到新程序堆栈的？<br>        新创建一个用户态堆栈的时候，实际上是把命令行参数的内容和环境变量的内容通过指针的方式传递到系统调用内核处理函数，然后内核处理函数创建出一个新的用户态堆栈的时候，会把参数和变量拷贝到用户态堆栈中。<br>先函数调用参数传递，再系统调用参数传递。如果仅仅是加载一个静态链接的可执行程序的话，我们只需要传递一个命令行参数和环境变量即可。但对于大多数程序来说，需要加载动态链接。<br>（3）为什么execve系统调用返回后新的可执行程序能顺利执行？<br>        Execve系统调用过程也是很特殊的系统调用过程。子进程是从ret_from_fork开始执行然后返回用户态。<br>当执行到execve系统调用的时候陷入内核态，在内核里面，sys_execve函数会利用execve加载的可执行文件把当前进程的可执行程序给覆盖掉，系统调用返回的时候，返回的已经不是原来的可执行程序了，而是新的可执行程序的起始位置（一般是新可执行程序的main()函数处）。<br>（4）对于静态链接的可执行程序和动态链接的可执行程序execve系统调用返回时会有什么不同？<br>        sys_execve系统调用的处理过程<br>        do_execve(getname(filename),argv,envp)//getname是传递文件名，argv,envp是传递环境变量。把环境变量转化为结构之后，再调用do_execve_common(filename,argv,envp)函数。<br>（5）“Linux内核装载和启动一个可执行程序”的理解<br>Linux内核装载一个可执行程序：首先创建新进程，该进程通过execve()系统调用执行指定的ELF文件，再调用execve()系统调用对应的内核的入口函数sys_execve()，sys_execve()服务例程修改当前进程的执行上下文。<br>        上述步骤完成后，该进程开始执行可执行文件代码。当ELF被load_elf_binary()装载完成后，函数返回至do_execve()在返回至sys_execve()。ELF可执行文件的入口点取决于程序的链接方式，对于静态链接的可执行文件，若是静态链接的，elf_entry就是指向可执行文件里边规定的那个头部，即main函数对应的位置，若这个可执行文件是需要依赖其它动态链接库的话，则elf_entry就是指向动态链接器的起点。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -213,99 +234,88 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://tpioneer.github.io/2017/04/09/Linux内核分析七/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/22/前端入门笔记（一）/" class="archive-article-date">
-  	<time datetime="2017-02-22T05:56:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-22</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/22/前端入门笔记（一）/">前端入门笔记一——html5语义化标签</a>
-    </h1>
+  
+    <a href="/2017/04/05/Machine-Learning-1st-week/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Machine Learning---1st week</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/21/HEXO搭建你的专属博客/" class="archive-article-date">
-  	<time datetime="2017-02-21T15:33:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/21/HEXO搭建你的专属博客/">HEXO搭建你的专属博客</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-    </nav>
-  
 
 
           </div>
@@ -328,8 +338,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

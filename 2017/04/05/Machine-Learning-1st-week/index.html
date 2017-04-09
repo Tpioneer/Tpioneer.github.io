@@ -6,17 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://tpioneer.github.io">
-  <title>Archives | ButterFly</title>
+  <title>Machine Learning---1st week | ButterFly</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前端新人，热爱技术">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ButterFly">
-<meta property="og:url" content="http://tpioneer.github.io/archives/page/2/index.html">
+  <meta name="description" content="这一系列博客是记录我在学习coursera上的机器学习课程时做的一些笔记和自己的一些理解。
+
+第一周的课程分为3部分，Introduction，Linear Regression with One Variable和Linear Algebra Review，在学完之后，应该对机器学习有了一个大概的了解，当然，线性代数的基础是必不可少的。
+Part 1 Introduction1.什么是机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Machine Learning---1st week">
+<meta property="og:url" content="http://tpioneer.github.io/2017/04/05/Machine-Learning-1st-week/index.html">
 <meta property="og:site_name" content="ButterFly">
-<meta property="og:description" content="前端新人，热爱技术">
+<meta property="og:description" content="这一系列博客是记录我在学习coursera上的机器学习课程时做的一些笔记和自己的一些理解。
+
+第一周的课程分为3部分，Introduction，Linear Regression with One Variable和Linear Algebra Review，在学完之后，应该对机器学习有了一个大概的了解，当然，线性代数的基础是必不可少的。
+Part 1 Introduction1.什么是机器学习">
+<meta property="og:updated_time" content="2017-04-05T11:53:09.650Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ButterFly">
-<meta name="twitter:description" content="前端新人，热爱技术">
+<meta name="twitter:title" content="Machine Learning---1st week">
+<meta name="twitter:description" content="这一系列博客是记录我在学习coursera上的机器学习课程时做的一些笔记和自己的一些理解。
+
+第一周的课程分为3部分，Introduction，Linear Regression with One Variable和Linear Algebra Review，在学完之后，应该对机器学习有了一个大概的了解，当然，线性代数的基础是必不可少的。
+Part 1 Introduction1.什么是机器学习">
   
     <link rel="alternative" href="/atom.xml" title="ButterFly" type="application/atom+xml">
   
@@ -172,140 +182,145 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Machine-Learning-1st-week" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Machine Learning---1st week
+    </h1>
+  
+
+        
+        <a href="/2017/04/05/Machine-Learning-1st-week/" class="archive-article-date">
+  	<time datetime="2017-04-05T05:37:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-05</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>这一系列博客是记录我在学习coursera上的<a href="https://www.coursera.org/learn/machine-learning" target="_blank" rel="external">机器学习课程</a>时做的一些笔记和自己的一些理解。</p>
+</blockquote>
+<p>第一周的课程分为3部分，Introduction，Linear Regression with One Variable和Linear Algebra Review，在学完之后，应该对机器学习有了一个大概的了解，当然，线性代数的基础是必不可少的。</p>
+<h3 id="Part-1-Introduction"><a href="#Part-1-Introduction" class="headerlink" title="Part 1 Introduction"></a>Part 1 Introduction</h3><p>1.什么是机器学习？</p>
+<blockquote>
+<p>这里引用课程原文如下：Two definitions of Machine Learning are offered. Arthur Samuel described it as: “the field of study that gives computers the ability to learn without being explicitly programmed.” This is an older, informal definition.<br>Tom Mitchell provides a more modern definition: “A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E.”<br>Example: playing checkers.<br>E = the experience of playing many games of checkers<br>T = the task of playing checkers.<br>P = the probability that the program will win the next game.<br>In general, any machine learning problem can be assigned to one of two broad classifications:Supervised learning and Unsupervised learning.</p>
+</blockquote>
+<p>2.监督式学习和非监督式学习定义和区别？<br>是否有监督（supervised），就看输入数据是否有标签（label）。输入数据有标签，则为有监督学习，没标签则为无监督学习。<br>1）监督式学习<br>监督式学习，我的理解就是在处理task之前先学习一个正确集或者说是训练集，即在去做tasks之前会有个学习历史数据的过程。比如说，一个小孩子第一次去动物园，他的父母会告诉他狮子是什么，老虎是什么，这样在下次去动物园时这个孩子就可以自己区分老虎和狮子。除了这种典型的分类问题，监督式学习还包括了回归问题，比如说根据最近一段时间的温度监控，来预测明天的温度，这就是个回归问题，因为温度是连续的，而如果是根据最近的天气来判断明天是晴天，下雨还是阴天，这就是个分类问题。<br>2）非监督式学习<br>还是先来问题化地解释一下无监督学习：我们有一些问题，但是不知道答案，我们要做的无监督学习就是按照他们的性质把他们自动地分成很多组，每组的问题是具有类似性质的（比如数学问题会聚集在一组，英语问题会聚集在一组，物理……..）。所有数据只有特征向量没有标签，但是可以发现这些数据呈现出聚群的结构，本质是一个相似的类型的会聚集在一起。把这些没有标签的数据分成一个一个组合，就是聚类（Clustering）。比如Google新闻，每天会搜集大量的新闻，然后把它们全部聚类，就会自动分成几十个不同的组（比如娱乐，科技，政治……），每个组内新闻都具有相似的内容结构。无监督学习还有一个典型的例子就是鸡尾酒会问题（声音的分离），在这个酒会上有两种声音，被两个不同的麦克风在不同的地方接收到，而可以利用无监督学习来分离这两种不同的声音。注意到这里是无监督学习的原因是，事先并不知道这些声音中有哪些种类（这里的种类就是标签的意思）。</p>
+<h3 id="Part-2-Linear-Regression-with-One-Variable"><a href="#Part-2-Linear-Regression-with-One-Variable" class="headerlink" title="Part 2 Linear Regression with One Variable"></a>Part 2 Linear Regression with One Variable</h3><h3 id="Part-3-Linear-Algebra-Review"><a href="#Part-3-Linear-Algebra-Review" class="headerlink" title="Part 3 Linear Algebra Review"></a>Part 3 Linear Algebra Review</h3><h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/24/Linux内核分析一/" class="archive-article-date">
-  	<time datetime="2017-02-24T05:38:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/24/Linux内核分析一/">Linux内核分析一 ——计算机如何工作</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ML</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://tpioneer.github.io/2017/04/05/Machine-Learning-1st-week/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/22/前端入门笔记（一）/" class="archive-article-date">
-  	<time datetime="2017-02-22T05:56:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-22</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/22/前端入门笔记（一）/">前端入门笔记一——html5语义化标签</a>
-    </h1>
+    <a href="/2017/04/09/Linux内核分析七/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Linux内核分析七
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/04/02/Linux内核分析六/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux内核分析六</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/21/HEXO搭建你的专属博客/" class="archive-article-date">
-  	<time datetime="2017-02-21T15:33:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/21/HEXO搭建你的专属博客/">HEXO搭建你的专属博客</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-    </nav>
-  
 
 
           </div>
@@ -328,8 +343,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

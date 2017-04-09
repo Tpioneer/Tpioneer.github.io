@@ -174,6 +174,143 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Linux内核分析七" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/09/Linux内核分析七/">Linux内核分析七</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/09/Linux内核分析七/" class="archive-article-date">
+  	<time datetime="2017-04-09T11:22:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>陶先锋 原创作品转载请注明出处 《Linux内核分析》MOOC课程 <a href="http://mooc.study.163.com/course/USTC-1000029000">http://mooc.study.163.com/course/USTC-1000029000</a></p>
+</blockquote>
+<h3 id="一、基础理论"><a href="#一、基础理论" class="headerlink" title="一、基础理论"></a>一、基础理论</h3><h4 id="1、编译链接的过程和ELF可执行文件格式"><a href="#1、编译链接的过程和ELF可执行文件格式" class="headerlink" title="1、编译链接的过程和ELF可执行文件格式"></a>1、编译链接的过程和ELF可执行文件格式</h4><p>1.1 编译链接的过程<br>源文件生成可执行文件的过程主要包括三个部分：<br>预处理：主要是编译器对各种预处理命令进行处理，包括头文件的包含、宏定义的扩展、条件编译的选择等；<br>编译：把作为中间结果的汇编代码翻译成了机器代码，即目标代码，不过它还不可以运行；<br>链接：链接是处理可重定位文件，把它们的各种符号引用和符号定义转换为可执行文件中的合适信息（一般是虚拟内存地址）的过程。链接又分为静态链接和动态链接，前者是程序开发阶段程序员用ld（gcc实际上在后台调用了ld）静态链接器手动链接的过程，而动态链接则是程序运行期间系统调用动态链接器(ld-linux.so)自动链接的过程<br>分析：以hello.c源文件为例<br>      （1）预处理阶段：gcc -E -o hello.cpp hello.c -m32 将hello.c文件预处理成hello.cpp文件；预处理负责把include的文件包含进来及宏替换等工作。<br>      （2） 编译阶段：gcc -x cpp-output -S -o hello.s hello.cpp -m32 将hello.cpp文件编译成hello.s汇编代码<br>      （3）链接阶段：gcc -x assembler -c hello.s -o hello.o -m32 将目标文件链接成可执行文件hello<br>
+        
+          <a class="article-more-a" href="/2017/04/09/Linux内核分析七/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/09/Linux内核分析七/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Machine-Learning-1st-week" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/05/Machine-Learning-1st-week/">Machine Learning---1st week</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/05/Machine-Learning-1st-week/" class="archive-article-date">
+  	<time datetime="2017-04-05T05:37:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>这一系列博客是记录我在学习coursera上的<a href="https://www.coursera.org/learn/machine-learning" target="_blank" rel="external">机器学习课程</a>时做的一些笔记和自己的一些理解。</p>
+</blockquote>
+<p>第一周的课程分为3部分，Introduction，Linear Regression with One Variable和Linear Algebra Review，在学完之后，应该对机器学习有了一个大概的了解，当然，线性代数的基础是必不可少的。</p>
+<h3 id="Part-1-Introduction"><a href="#Part-1-Introduction" class="headerlink" title="Part 1 Introduction"></a>Part 1 Introduction</h3><p>1.什么是机器学习？</p>
+<blockquote>
+<p>这里引用课程原文如下：Two definitions of Machine Learning are offered. Arthur Samuel described it as: “the field of study that gives computers the ability to learn without being explicitly programmed.” This is an older, informal definition.<br>Tom Mitchell provides a more modern definition: “A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E.”<br>Example: playing checkers.<br>E = the experience of playing many games of checkers<br>T = the task of playing checkers.<br>P = the probability that the program will win the next game.<br>In general, any machine learning problem can be assigned to one of two broad classifications:Supervised learning and Unsupervised learning.</p>
+</blockquote>
+<p>2.监督式学习和非监督式学习定义和区别？<br>是否有监督（supervised），就看输入数据是否有标签（label）。输入数据有标签，则为有监督学习，没标签则为无监督学习。<br>1）监督式学习<br>监督式学习，我的理解就是在处理task之前先学习一个正确集或者说是训练集，即在去做tasks之前会有个学习历史数据的过程。比如说，一个小孩子第一次去动物园，他的父母会告诉他狮子是什么，老虎是什么，这样在下次去动物园时这个孩子就可以自己区分老虎和狮子。除了这种典型的分类问题，监督式学习还包括了回归问题，比如说根据最近一段时间的温度监控，来预测明天的温度，这就是个回归问题，因为温度是连续的，而如果是根据最近的天气来判断明天是晴天，下雨还是阴天，这就是个分类问题。<br>2）非监督式学习<br>还是先来问题化地解释一下无监督学习：我们有一些问题，但是不知道答案，我们要做的无监督学习就是按照他们的性质把他们自动地分成很多组，每组的问题是具有类似性质的（比如数学问题会聚集在一组，英语问题会聚集在一组，物理……..）。所有数据只有特征向量没有标签，但是可以发现这些数据呈现出聚群的结构，本质是一个相似的类型的会聚集在一起。把这些没有标签的数据分成一个一个组合，就是聚类（Clustering）。比如Google新闻，每天会搜集大量的新闻，然后把它们全部聚类，就会自动分成几十个不同的组（比如娱乐，科技，政治……），每个组内新闻都具有相似的内容结构。无监督学习还有一个典型的例子就是鸡尾酒会问题（声音的分离），在这个酒会上有两种声音，被两个不同的麦克风在不同的地方接收到，而可以利用无监督学习来分离这两种不同的声音。注意到这里是无监督学习的原因是，事先并不知道这些声音中有哪些种类（这里的种类就是标签的意思）。</p>
+<h3 id="Part-2-Linear-Regression-with-One-Variable"><a href="#Part-2-Linear-Regression-with-One-Variable" class="headerlink" title="Part 2 Linear Regression with One Variable"></a>Part 2 Linear Regression with One Variable</h3><h3 id="Part-3-Linear-Algebra-Review"><a href="#Part-3-Linear-Algebra-Review" class="headerlink" title="Part 3 Linear Algebra Review"></a>Part 3 Linear Algebra Review</h3><h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ML</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/05/Machine-Learning-1st-week/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-Linux内核分析六" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -571,140 +708,6 @@
 
 
   
-    <article id="post-Linux内核分析一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/24/Linux内核分析一/">Linux内核分析一 ——计算机如何工作</a>
-    </h1>
-  
-
-        
-        <a href="/2017/02/24/Linux内核分析一/" class="archive-article-date">
-  	<time datetime="2017-02-24T05:38:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>陶先锋 原创作品转载请注明出处 《Linux内核分析》MOOC课程 <a href="http://mooc.study.163.com/course/USTC-1000029000">http://mooc.study.163.com/course/USTC-1000029000</a></p>
-</blockquote>
-<h3 id="一、存储程序计算机工作模型"><a href="#一、存储程序计算机工作模型" class="headerlink" title="一、存储程序计算机工作模型"></a>一、存储程序计算机工作模型</h3><h5 id="（1）冯诺依曼体系结构：存储程序计算机的工作模型"><a href="#（1）冯诺依曼体系结构：存储程序计算机的工作模型" class="headerlink" title="（1）冯诺依曼体系结构：存储程序计算机的工作模型"></a>（1）冯诺依曼体系结构：存储程序计算机的工作模型</h5><p>从硬件角度看程序的执行过程：其中IP（instruction pointer）为CPU中的寄存器，指向内存中的某一块，CPU执行指令时，会从IP中取出一条指令后执行，执行过后，IP自加一（增加一个指令的长度），取下一条指令执行。<br><img src="/img/linux1-1.png" alt="config"><br>
-        
-          <a class="article-more-a" href="/2017/02/24/Linux内核分析一/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/24/Linux内核分析一/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-前端入门笔记（一）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/22/前端入门笔记（一）/">前端入门笔记一——html5语义化标签</a>
-    </h1>
-  
-
-        
-        <a href="/2017/02/22/前端入门笔记（一）/" class="archive-article-date">
-  	<time datetime="2017-02-22T05:56:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>关键词： html5  语义化  前端</p>
-</blockquote>
-<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>  首先，这篇文章并不是介绍html的所有标签，这里仅仅是对html5中新定义的一系列语义化标签如<code>&lt;header&gt;,&lt;nav&gt;,&lt;section&gt;</code>等的一个简单<br>  的汇总，这些语义化的标签的出现，不仅提高了开发效率，同时相对于使用过多的div，这些标签的出现极大的增强了页面的语义化。下面总结了一<br>  些常用的语义化标签。<br>
-        
-          <a class="article-more-a" href="/2017/02/22/前端入门笔记（一）/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/22/前端入门笔记（一）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -798,7 +801,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color3">ML</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -807,6 +810,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
             
             <div class="clearfix"></div>
