@@ -6,17 +6,29 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://tpioneer.github.io">
-  <title>ButterFly</title>
+  <title>Linux内核分析八 | ButterFly</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前端新人，热爱技术">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ButterFly">
-<meta property="og:url" content="http://tpioneer.github.io/page/2/index.html">
+  <meta name="description" content="陶先锋 原创作品转载请注明出处 《Linux内核分析》MOOC课程 http://mooc.study.163.com/course/USTC-1000029000
+
+一、理论知识1)、进程切换的关键代码switch_to1.进程调度与进程调度的时机（1）进程分类：I/O型（执行块，频繁）CPU型（大量的计算）（2）调度策略：什么时候选择以怎样的方式执行新进程（3）Linux中的优先级是动态的，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux内核分析八">
+<meta property="og:url" content="http://tpioneer.github.io/2017/04/16/Linux内核分析八/index.html">
 <meta property="og:site_name" content="ButterFly">
-<meta property="og:description" content="前端新人，热爱技术">
+<meta property="og:description" content="陶先锋 原创作品转载请注明出处 《Linux内核分析》MOOC课程 http://mooc.study.163.com/course/USTC-1000029000
+
+一、理论知识1)、进程切换的关键代码switch_to1.进程调度与进程调度的时机（1）进程分类：I/O型（执行块，频繁）CPU型（大量的计算）（2）调度策略：什么时候选择以怎样的方式执行新进程（3）Linux中的优先级是动态的，">
+<meta property="og:image" content="https://dn-simplecloud.shiyanlou.com/2651591491357910261-wm">
+<meta property="og:image" content="https://dn-simplecloud.shiyanlou.com/2651591491358414266-wm">
+<meta property="og:image" content="https://dn-simplecloud.shiyanlou.com/2651591491358583355-wm">
+<meta property="og:image" content="https://dn-simplecloud.shiyanlou.com/2651591491358668405-wm">
+<meta property="og:updated_time" content="2017-04-16T12:53:50.603Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ButterFly">
-<meta name="twitter:description" content="前端新人，热爱技术">
+<meta name="twitter:title" content="Linux内核分析八">
+<meta name="twitter:description" content="陶先锋 原创作品转载请注明出处 《Linux内核分析》MOOC课程 http://mooc.study.163.com/course/USTC-1000029000
+
+一、理论知识1)、进程切换的关键代码switch_to1.进程调度与进程调度的时机（1）进程分类：I/O型（执行块，频繁）CPU型（大量的计算）（2）调度策略：什么时候选择以怎样的方式执行新进程（3）Linux中的优先级是动态的，">
+<meta name="twitter:image" content="https://dn-simplecloud.shiyanlou.com/2651591491357910261-wm">
   
     <link rel="alternative" href="/atom.xml" title="ButterFly" type="application/atom+xml">
   
@@ -172,22 +184,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-新学期计划" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-Linux内核分析八" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/27/新学期计划/">新学期学习计划</a>
+    <h1 class="article-title" itemprop="name">
+      Linux内核分析八
     </h1>
   
 
         
-        <a href="/2017/02/27/新学期计划/" class="archive-article-date">
-  	<time datetime="2017-02-27T11:43:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-27</time>
+        <a href="/2017/04/16/Linux内核分析八/" class="archive-article-date">
+  	<time datetime="2017-04-16T12:36:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-16</time>
 </a>
         
       </header>
@@ -195,77 +205,17 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>盲目的学了快3周的时间，感觉每天学的都很零散，比如说今天看点http协议，明天看点css，后天就可能在想着爬虫的事，这样虽然每天看起来都在学习，但是效率感人，所以决定做个学习规划放在博客上，每周更新总结一次进度。<br>
-        
-          <a class="article-more-a" href="/2017/02/27/新学期计划/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">心情</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/27/新学期计划/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Linux内核分析一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/24/Linux内核分析一/">Linux内核分析一 ——计算机如何工作</a>
-    </h1>
-  
-
-        
-        <a href="/2017/02/24/Linux内核分析一/" class="archive-article-date">
-  	<time datetime="2017-02-24T05:38:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>陶先锋 原创作品转载请注明出处 《Linux内核分析》MOOC课程 <a href="http://mooc.study.163.com/course/USTC-1000029000">http://mooc.study.163.com/course/USTC-1000029000</a></p>
+<p>陶先锋 原创作品转载请注明出处 《Linux内核分析》MOOC课程 <a href="http://mooc.study.163.com/course/USTC-1000029000" target="_blank" rel="external">http://mooc.study.163.com/course/USTC-1000029000</a></p>
 </blockquote>
-<h3 id="一、存储程序计算机工作模型"><a href="#一、存储程序计算机工作模型" class="headerlink" title="一、存储程序计算机工作模型"></a>一、存储程序计算机工作模型</h3><h5 id="（1）冯诺依曼体系结构：存储程序计算机的工作模型"><a href="#（1）冯诺依曼体系结构：存储程序计算机的工作模型" class="headerlink" title="（1）冯诺依曼体系结构：存储程序计算机的工作模型"></a>（1）冯诺依曼体系结构：存储程序计算机的工作模型</h5><p>从硬件角度看程序的执行过程：其中IP（instruction pointer）为CPU中的寄存器，指向内存中的某一块，CPU执行指令时，会从IP中取出一条指令后执行，执行过后，IP自加一（增加一个指令的长度），取下一条指令执行。<br><img src="/img/linux1-1.png" alt="config"><br>
-        
-          <a class="article-more-a" href="/2017/02/24/Linux内核分析一/#more">more >></a>
-        
+<h3 id="一、理论知识"><a href="#一、理论知识" class="headerlink" title="一、理论知识"></a>一、理论知识</h3><h4 id="1-、进程切换的关键代码switch-to"><a href="#1-、进程切换的关键代码switch-to" class="headerlink" title="1)、进程切换的关键代码switch_to"></a>1)、进程切换的关键代码switch_to</h4><p>1.进程调度与进程调度的时机<br>（1）进程分类：<br>I/O型（执行块，频繁）<br>CPU型（大量的计算）<br>（2）调度策略：什么时候选择以怎样的方式执行新进程<br>（3）Linux中的优先级是动态的，Linux进程根据优先级排队<br>（4）进程调度的时机<br>中断处理过程（包括时钟中断、I/O中断、系统调用和异常）中，直接调用schedule()，或者返回用户态时根据need_resched标记调用schedule()（也就是说，用户态进程只能被动地调度）；内核线程可以直接调用schedule()进行进程切换，也可以在中断处理过程中进行调度，也就是说内核线程作为一类的特殊的进程可以主动调度，也可以被动调度；<br>用户态进程无法实现主动调度，仅能通过陷入内核态后的某个时机点进行调度，即在中断处理过程中进行调度。<br>2.进程切换上下文的代码<br>（1）进程切换：内核有能力挂起正在CPU上执行的进程，并恢复以前挂起的某个进程的执行<br>（2）进程上下文包含了进程执行需要的所有信息<br>用户地址空间：包括程序代码，数据，用户堆栈等<br>控制信息：进程描述符，内核堆栈等<br>硬件上下文（中断也要保存硬件上下文只是保存的方法不同，中断是通过压栈来解决的，而这里是通过schedule函数）<br>（3）<br>schedule()函数，选择一个新进程运行<br>context_switch完成进程上下文切换<br>switch_to：切换寄存器和堆栈<br>保存当前进程的eip，把下一个进程的eip压栈</p>
+<h4 id="2-、Linux系统的一般执行过程"><a href="#2-、Linux系统的一般执行过程" class="headerlink" title="2)、Linux系统的一般执行过程"></a>2)、Linux系统的一般执行过程</h4><p>1.Linux系统的一般执行过程分析<br>正在运行的用户态进程X切换到运行用户态进程Y的过程<br>正在运行的用户态进程X<br>发生中断——<br>save cs:eip/esp/eflags(current) to kernel stack；<br>then load cs:eip(系统调用的起点，entry of a specific ISR) and ss:esp(point to kernel stack)<br>进入内核代码，SAVE_ALL //保存现场<br>中断处理过程中或中断返回前调用了schedule()（可能不发生，诺发生，则其中的switch_to做了关键的进程上下文切换）<br>标号1之后开始运行上一步中选中的用户态进程Y(这里Y曾经通过以上步骤被切换出去过因此可以从标号1继续执行)<br>restore_all //恢复现场<br>iret - pop cs:eip/ss:esp/eflags from kernel stack<br>继续运行用户态进程Y<br>2.Linux系统执行过程中的几个特殊情况<br>通过中断处理过程中的调度时机，用户态进程与内核线程之间互相切换和内核线程之间互相切换，与最一般的情况非常类似，只是内核线程运行过程中发生中断的时候没有进程用户态和内核态的转换，cs不会变化；<br>内核线程主动调用schedule()，只有进程上下文的切换，没有发生中断上下文的切换，也不需要从中断中返回，与最一般的情况相比更简略；<br>创建子进程的系统调用在子进程中的执行起点（如ret_from_fork，上文中也已经提到过)及返回用户态；<br>加载一个新的可执行程序后返回到用户态的情况，如execve，在新进程内部修改了中断保存的信息<br>3.内核<br>（1）进程的地址空间一共有4G，3G以上只有内核态可以访问，0至3G用户态可以访问<br>（2）每一个进程都可以陷入内核，然后返回用户态，没有进程就空转</p>
+<h4 id="3）、Linux操作系统架构和执行过程概览"><a href="#3）、Linux操作系统架构和执行过程概览" class="headerlink" title="3）、Linux操作系统架构和执行过程概览"></a>3）、Linux操作系统架构和执行过程概览</h4><p>1.linux操作系统架构概览<br>（1）操作系统：计算机系统包含的一个基本的程序集合<br>（2）目的：<br>与硬件交互<br>为用户程序提供一个良好的执行环境<br>2.执行ls命令<br>在控制台输入ls命令<br>Shell程序分析输入参数，确定这是ls<br>调用系统调用fork生成一个shell本身的拷贝<br>调用exec系统调用将ls可执行文件装入内存<br>从系统调用返回<br>Shell和ls都得到执行<br>3.从CPU和内存角度看Linux系统执行<br>执行gets()函数；<br>执行系统调用，陷入内核；<br>等待输入，CPU会调度其他进程执行，同时wait一个I/O中断；<br>敲击ls，发I/O中断给CPU，中断处理程序进行现场保存、压栈等等；<br>中断处理程序发现X进程在等待这个I/O（此时X已经变成阻塞态），处理程序将X设置为WAKE_UP;<br>进程管理可能会把进程X设置为next进程，这样gets系统调用获得数据，再返回用户态堆栈<br>从内存角度看，所有的物理地址都会被映射到3G以上的地址空间：因为这部分对所有进程来说都是共享的</p>
+<h3 id="二、实验"><a href="#二、实验" class="headerlink" title="二、实验"></a>二、实验</h3><p>gdb开始调试，设置监视、加载文件符号表调试并设置断点<br>set break ponit at schedule context_switch switch to<br><img src="https://dn-simplecloud.shiyanlou.com/2651591491357910261-wm" alt="config"><br>在schedule处断点<br><img src="https://dn-simplecloud.shiyanlou.com/2651591491358414266-wm" alt="config"><br>可以看到函数如下图<br><img src="https://dn-simplecloud.shiyanlou.com/2651591491358583355-wm" alt="config"><br><img src="https://dn-simplecloud.shiyanlou.com/2651591491358668405-wm" alt="config"></p>
+<h3 id="三、总结"><a href="#三、总结" class="headerlink" title="三、总结"></a>三、总结</h3><p>最一般的情况：正在运行的用户态进程X切换到运行用户态进程Y的过程</p>
+<blockquote>
+<p>(1)正在运行的用户态进程X<br>(2)发生中断——savecs:eip/esp/eflags(current) to kernel stack,then load cs:eip(entry of a specificISR) and ss:esp(point to kernel stack).<br>(3)SAVE_ALL //保存现场<br>(4)中断处理过程中或中断返回前调用了schedule()，其中的switch_to做了关键的进程上下文切换<br>(5)标号1之后开始运行用户态进程Y(这里Y曾经通过以上步骤被切换出去过因此可以从标号1继续执行)<br>(6)restore_all //恢复现场<br>(7)iret - pop cs:eip/ss:esp/eflags from kernel stack<br>(8)继续运行用户态进程Y</p>
+</blockquote>
+
       
 
       
@@ -287,18 +237,74 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/24/Linux内核分析一/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://tpioneer.github.io/2017/04/16/Linux内核分析八/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
 
-
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/04/09/Linux内核分析七/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux内核分析七</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
 
@@ -306,148 +312,10 @@
 
 
   
-    <article id="post-前端入门笔记（一）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/22/前端入门笔记（一）/">前端入门笔记一——html5语义化标签</a>
-    </h1>
+    <div class="duoshuo"></div>
   
 
-        
-        <a href="/2017/02/22/前端入门笔记（一）/" class="archive-article-date">
-  	<time datetime="2017-02-22T05:56:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>关键词： html5  语义化  前端</p>
-</blockquote>
-<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>  首先，这篇文章并不是介绍html的所有标签，这里仅仅是对html5中新定义的一系列语义化标签如<code>&lt;header&gt;,&lt;nav&gt;,&lt;section&gt;</code>等的一个简单<br>  的汇总，这些语义化的标签的出现，不仅提高了开发效率，同时相对于使用过多的div，这些标签的出现极大的增强了页面的语义化。下面总结了一<br>  些常用的语义化标签。<br>
-        
-          <a class="article-more-a" href="/2017/02/22/前端入门笔记（一）/#more">more >></a>
-        
-      
 
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/22/前端入门笔记（一）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-HEXO搭建你的专属博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/21/HEXO搭建你的专属博客/">HEXO搭建你的专属博客</a>
-    </h1>
-  
-
-        
-        <a href="/2017/02/21/HEXO搭建你的专属博客/" class="archive-article-date">
-  	<time datetime="2017-02-21T15:33:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>关键词：github  hexo  blog</p>
-</blockquote>
-<h3 id="STEP1-前期准备"><a href="#STEP1-前期准备" class="headerlink" title="STEP1 前期准备"></a>STEP1 前期准备</h3><blockquote>
-<p>在这里默认你已经拥有了github账号，如果没有，还等什么，赶快<a href="https://github.com/">加入</a>最大的同性交友平台吧（雾。</p>
-</blockquote>
-<p>  在github中创建一个名为<strong>username.github.io</strong>（这里的username即你的账号名，比如我的为Tpioneer.github.io）的库，创建完<br>  后可以试着往库中push一个简单的index.html如下。（github的简单操作可以参考如下<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000">教程</a>）<br>
-        
-          <a class="article-more-a" href="/2017/02/21/HEXO搭建你的专属博客/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/21/HEXO搭建你的专属博客/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-    </nav>
-  
 
 
           </div>
@@ -469,8 +337,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
