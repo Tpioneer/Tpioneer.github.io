@@ -26,7 +26,7 @@
 关于课程的一些预备知识。主要包括汇编语言基础知识、C语言函数调用过程中的堆栈变化和参数传递过程。
 
 复杂又简单的计算机：计算机实现很复杂的功能，计算和处理大量的数据，实际上是通过不断地重复大">
-<meta property="og:updated_time" content="2017-04-23T06:32:11.132Z">
+<meta property="og:updated_time" content="2017-04-23T06:35:42.909Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux内核分析九--期末总结">
 <meta name="twitter:description" content="陶先锋 原创作品转载请注明出处 《Linux内核分析》MOOC课程 http://mooc.study.163.com/course/USTC-1000029000
@@ -221,8 +221,12 @@
 <li>复杂又简单的计算机：计算机实现很复杂的功能，计算和处理大量的数据，实际上是通过不断地重复大量既定的简单的操作。</li>
 <li>程序：告诉计算机操作的步骤、输入的数据、如何存放处理后的结果。计算机会尽可能忠实地按照程序的顺序将每一个操作步骤的指令取出，变成机器语言，通过软硬件协同工作。</li>
 <li>汇编语言：汇编语言是机器语言的一种翻译。现在编译器功能强大，汇编语言真正用的时候并不多，但能够看懂汇编语句，在分析程序真正执行的流程、单步调试程序的方面都有很大帮助。<a id="more"></a>
-2.<a href="http://tpioneer.github.io/2017/03/05/Linux%E5%86%85%E6%A0%B8%E5%88%86%E6%9E%90%E4%BA%8C/">Linux内核分析二</a><br>简单模拟内核代码。主要包括函数调用堆栈、函数堆栈框架、内核的初始化、中断、进程上下文切换过程的简述以及基于时间片轮转的多道程序模拟。  </li>
+</li>
 </ul>
+</blockquote>
+<p>2.<a href="http://tpioneer.github.io/2017/03/05/Linux%E5%86%85%E6%A0%B8%E5%88%86%E6%9E%90%E4%BA%8C/">Linux内核分析二</a></p>
+<blockquote>
+<p>简单模拟内核代码。主要包括函数调用堆栈、函数堆栈框架、内核的初始化、中断、进程上下文切换过程的简述以及基于时间片轮转的多道程序模拟。  </p>
 <ul>
 <li>操作系统三个法宝：存储程序计算机、函数调用堆栈、中断机制。</li>
 <li>操作系统两把宝剑：中断上下文、进程上下文的切换<br>操作系统核心功能：进程调度和中断机制，通过与硬件的配合实现多任务处理，再加上上层应用软件的支持，最终变成可以使用户可以很容易操作的计算机系统。<br>多进程的Linux操作系统：进程必须等到正在运行的进程空闲CPU后才能运行。<br>进程切换：当正在运行的进程等待其他的系统资源时，Linux内核将取得CPU的控制权，并将CPU分配给其他正在等待的进程。进程切换机制中包含esp的切换、堆栈的切换。</li>
@@ -452,15 +456,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">心情</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ML</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">心情</a>
               </li>
             
             <div class="clearfix"></div>
