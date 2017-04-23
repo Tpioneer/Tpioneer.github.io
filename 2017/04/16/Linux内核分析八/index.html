@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://dn-simplecloud.shiyanlou.com/2651591491358414266-wm">
 <meta property="og:image" content="https://dn-simplecloud.shiyanlou.com/2651591491358583355-wm">
 <meta property="og:image" content="https://dn-simplecloud.shiyanlou.com/2651591491358668405-wm">
-<meta property="og:updated_time" content="2017-04-16T12:53:50.603Z">
+<meta property="og:updated_time" content="2017-04-23T06:32:36.961Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux内核分析八">
 <meta name="twitter:description" content="陶先锋 原创作品转载请注明出处 《Linux内核分析》MOOC课程 http://mooc.study.163.com/course/USTC-1000029000
@@ -207,7 +207,7 @@
         <blockquote>
 <p>陶先锋 原创作品转载请注明出处 《Linux内核分析》MOOC课程 <a href="http://mooc.study.163.com/course/USTC-1000029000" target="_blank" rel="external">http://mooc.study.163.com/course/USTC-1000029000</a></p>
 </blockquote>
-<h3 id="一、理论知识"><a href="#一、理论知识" class="headerlink" title="一、理论知识"></a>一、理论知识</h3><h4 id="1-、进程切换的关键代码switch-to"><a href="#1-、进程切换的关键代码switch-to" class="headerlink" title="1)、进程切换的关键代码switch_to"></a>1)、进程切换的关键代码switch_to</h4><p>1.进程调度与进程调度的时机<br>（1）进程分类：<br>I/O型（执行块，频繁）<br>CPU型（大量的计算）<br>（2）调度策略：什么时候选择以怎样的方式执行新进程<br>（3）Linux中的优先级是动态的，Linux进程根据优先级排队<br>（4）进程调度的时机<br>中断处理过程（包括时钟中断、I/O中断、系统调用和异常）中，直接调用schedule()，或者返回用户态时根据need_resched标记调用schedule()（也就是说，用户态进程只能被动地调度）；内核线程可以直接调用schedule()进行进程切换，也可以在中断处理过程中进行调度，也就是说内核线程作为一类的特殊的进程可以主动调度，也可以被动调度；<br>用户态进程无法实现主动调度，仅能通过陷入内核态后的某个时机点进行调度，即在中断处理过程中进行调度。<br>2.进程切换上下文的代码<br>（1）进程切换：内核有能力挂起正在CPU上执行的进程，并恢复以前挂起的某个进程的执行<br>（2）进程上下文包含了进程执行需要的所有信息<br>用户地址空间：包括程序代码，数据，用户堆栈等<br>控制信息：进程描述符，内核堆栈等<br>硬件上下文（中断也要保存硬件上下文只是保存的方法不同，中断是通过压栈来解决的，而这里是通过schedule函数）<br>（3）<br>schedule()函数，选择一个新进程运行<br>context_switch完成进程上下文切换<br>switch_to：切换寄存器和堆栈<br>保存当前进程的eip，把下一个进程的eip压栈</p>
+<h3 id="一、理论知识"><a href="#一、理论知识" class="headerlink" title="一、理论知识"></a>一、理论知识</h3><h4 id="1-、进程切换的关键代码switch-to"><a href="#1-、进程切换的关键代码switch-to" class="headerlink" title="1)、进程切换的关键代码switch_to"></a>1)、进程切换的关键代码switch_to</h4><p>1.进程调度与进程调度的时机<br>（1）进程分类：<br>I/O型（执行块，频繁）<br>CPU型（大量的计算）<br>（2）调度策略：什么时候选择以怎样的方式执行新进程<br>（3）Linux中的优先级是动态的，Linux进程根据优先级排队<br>（4）进程调度的时机<br>中断处理过程（包括时钟中断、I/O中断、系统调用和异常）中，直接调用schedule()，或者返回用户态时根据need_resched标记调用schedule()（也就是说，用户态进程只能被动地调度）；内核线程可以直接调用schedule()进行进程切换，也可以在中断处理过程中进行调度，也就是说内核线程作为一类的特殊的进程可以主动调度，也可以被动调度；<br>用户态进程无法实现主动调度，仅能通过陷入内核态后的某个时机点进行调度，即在中断处理过程中进行调度。<br>  <a id="more"></a><br>2.进程切换上下文的代码<br>（1）进程切换：内核有能力挂起正在CPU上执行的进程，并恢复以前挂起的某个进程的执行<br>（2）进程上下文包含了进程执行需要的所有信息<br>用户地址空间：包括程序代码，数据，用户堆栈等<br>控制信息：进程描述符，内核堆栈等<br>硬件上下文（中断也要保存硬件上下文只是保存的方法不同，中断是通过压栈来解决的，而这里是通过schedule函数）<br>（3）<br>schedule()函数，选择一个新进程运行<br>context_switch完成进程上下文切换<br>switch_to：切换寄存器和堆栈<br>保存当前进程的eip，把下一个进程的eip压栈</p>
 <h4 id="2-、Linux系统的一般执行过程"><a href="#2-、Linux系统的一般执行过程" class="headerlink" title="2)、Linux系统的一般执行过程"></a>2)、Linux系统的一般执行过程</h4><p>1.Linux系统的一般执行过程分析<br>正在运行的用户态进程X切换到运行用户态进程Y的过程<br>正在运行的用户态进程X<br>发生中断——<br>save cs:eip/esp/eflags(current) to kernel stack；<br>then load cs:eip(系统调用的起点，entry of a specific ISR) and ss:esp(point to kernel stack)<br>进入内核代码，SAVE_ALL //保存现场<br>中断处理过程中或中断返回前调用了schedule()（可能不发生，诺发生，则其中的switch_to做了关键的进程上下文切换）<br>标号1之后开始运行上一步中选中的用户态进程Y(这里Y曾经通过以上步骤被切换出去过因此可以从标号1继续执行)<br>restore_all //恢复现场<br>iret - pop cs:eip/ss:esp/eflags from kernel stack<br>继续运行用户态进程Y<br>2.Linux系统执行过程中的几个特殊情况<br>通过中断处理过程中的调度时机，用户态进程与内核线程之间互相切换和内核线程之间互相切换，与最一般的情况非常类似，只是内核线程运行过程中发生中断的时候没有进程用户态和内核态的转换，cs不会变化；<br>内核线程主动调用schedule()，只有进程上下文的切换，没有发生中断上下文的切换，也不需要从中断中返回，与最一般的情况相比更简略；<br>创建子进程的系统调用在子进程中的执行起点（如ret_from_fork，上文中也已经提到过)及返回用户态；<br>加载一个新的可执行程序后返回到用户态的情况，如execve，在新进程内部修改了中断保存的信息<br>3.内核<br>（1）进程的地址空间一共有4G，3G以上只有内核态可以访问，0至3G用户态可以访问<br>（2）每一个进程都可以陷入内核，然后返回用户态，没有进程就空转</p>
 <h4 id="3）、Linux操作系统架构和执行过程概览"><a href="#3）、Linux操作系统架构和执行过程概览" class="headerlink" title="3）、Linux操作系统架构和执行过程概览"></a>3）、Linux操作系统架构和执行过程概览</h4><p>1.linux操作系统架构概览<br>（1）操作系统：计算机系统包含的一个基本的程序集合<br>（2）目的：<br>与硬件交互<br>为用户程序提供一个良好的执行环境<br>2.执行ls命令<br>在控制台输入ls命令<br>Shell程序分析输入参数，确定这是ls<br>调用系统调用fork生成一个shell本身的拷贝<br>调用exec系统调用将ls可执行文件装入内存<br>从系统调用返回<br>Shell和ls都得到执行<br>3.从CPU和内存角度看Linux系统执行<br>执行gets()函数；<br>执行系统调用，陷入内核；<br>等待输入，CPU会调度其他进程执行，同时wait一个I/O中断；<br>敲击ls，发I/O中断给CPU，中断处理程序进行现场保存、压栈等等；<br>中断处理程序发现X进程在等待这个I/O（此时X已经变成阻塞态），处理程序将X设置为WAKE_UP;<br>进程管理可能会把进程X设置为next进程，这样gets系统调用获得数据，再返回用户态堆栈<br>从内存角度看，所有的物理地址都会被映射到3G以上的地址空间：因为这部分对所有进程来说都是共享的</p>
 <h3 id="二、实验"><a href="#二、实验" class="headerlink" title="二、实验"></a>二、实验</h3><p>gdb开始调试，设置监视、加载文件符号表调试并设置断点<br>set break ponit at schedule context_switch switch to<br><img src="https://dn-simplecloud.shiyanlou.com/2651591491357910261-wm" alt="config"><br>在schedule处断点<br><img src="https://dn-simplecloud.shiyanlou.com/2651591491358414266-wm" alt="config"><br>可以看到函数如下图<br><img src="https://dn-simplecloud.shiyanlou.com/2651591491358583355-wm" alt="config"><br><img src="https://dn-simplecloud.shiyanlou.com/2651591491358668405-wm" alt="config"></p>
@@ -297,6 +297,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/04/23/Linux内核分析九-期末总结/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Linux内核分析九--期末总结
+        
+      </div>
+    </a>
   
   
     <a href="/2017/04/09/Linux内核分析七/" id="article-nav-older" class="article-nav-link-wrap">
@@ -400,11 +409,15 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">心情</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -413,10 +426,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">心情</a>
               </li>
             
             <div class="clearfix"></div>

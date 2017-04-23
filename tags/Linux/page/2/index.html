@@ -6,32 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://tpioneer.github.io">
-  <title>Linux内核分析六 | ButterFly</title>
+  <title>Tag: Linux | ButterFly</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="陶先锋 原创作品转载请注明出处 《Linux内核分析》MOOC课程 http://mooc.study.163.com/course/USTC-1000029000
-
-一、Linux中的进程简析进程是任何多道程序设计的操作系统额基本概念，就像我们经常看到的关于进程的定义就是程序执行的一个实例，也是系统资源调度的最小单位。如果同一个程序被多个用户同时运行，那么这个程序就有多个相对独立的进程，与此同">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Linux内核分析六">
-<meta property="og:url" content="http://tpioneer.github.io/2017/04/02/Linux内核分析六/index.html">
+  <meta name="description" content="前端新人，热爱技术">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ButterFly">
+<meta property="og:url" content="http://tpioneer.github.io/tags/Linux/page/2/index.html">
 <meta property="og:site_name" content="ButterFly">
-<meta property="og:description" content="陶先锋 原创作品转载请注明出处 《Linux内核分析》MOOC课程 http://mooc.study.163.com/course/USTC-1000029000
-
-一、Linux中的进程简析进程是任何多道程序设计的操作系统额基本概念，就像我们经常看到的关于进程的定义就是程序执行的一个实例，也是系统资源调度的最小单位。如果同一个程序被多个用户同时运行，那么这个程序就有多个相对独立的进程，与此同">
-<meta property="og:image" content="http://olz5bd5zj.bkt.clouddn.com/linux6-1.png">
-<meta property="og:image" content="http://olz5bd5zj.bkt.clouddn.com/linux6-3.png">
-<meta property="og:image" content="http://olz5bd5zj.bkt.clouddn.com/linux6-2.png">
-<meta property="og:image" content="https://dn-simplecloud.shiyanlou.com/2651671491125643969-wm">
-<meta property="og:image" content="https://dn-simplecloud.shiyanlou.com/2651671491125888216-wm">
-<meta property="og:image" content="https://dn-simplecloud.shiyanlou.com/2651671491125980260-wm">
-<meta property="og:image" content="https://dn-simplecloud.shiyanlou.com/2651671491126073605-wm">
-<meta property="og:updated_time" content="2017-04-02T09:42:46.853Z">
+<meta property="og:description" content="前端新人，热爱技术">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux内核分析六">
-<meta name="twitter:description" content="陶先锋 原创作品转载请注明出处 《Linux内核分析》MOOC课程 http://mooc.study.163.com/course/USTC-1000029000
-
-一、Linux中的进程简析进程是任何多道程序设计的操作系统额基本概念，就像我们经常看到的关于进程的定义就是程序执行的一个实例，也是系统资源调度的最小单位。如果同一个程序被多个用户同时运行，那么这个程序就有多个相对独立的进程，与此同">
-<meta name="twitter:image" content="http://olz5bd5zj.bkt.clouddn.com/linux6-1.png">
+<meta name="twitter:title" content="ButterFly">
+<meta name="twitter:description" content="前端新人，热爱技术">
   
     <link rel="alternative" href="/atom.xml" title="ButterFly" type="application/atom+xml">
   
@@ -187,53 +172,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Linux内核分析六" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Linux内核分析六
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/02/24/Linux内核分析一/" class="archive-article-date">
+  	<time datetime="2017-02-24T05:38:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-24</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/02/24/Linux内核分析一/">Linux内核分析一 ——计算机如何工作</a>
     </h1>
   
 
-        
-        <a href="/2017/04/02/Linux内核分析六/" class="archive-article-date">
-  	<time datetime="2017-04-02T08:58:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>陶先锋 原创作品转载请注明出处 《Linux内核分析》MOOC课程 <a href="http://mooc.study.163.com/course/USTC-1000029000" target="_blank" rel="external">http://mooc.study.163.com/course/USTC-1000029000</a></p>
-</blockquote>
-<h3 id="一、Linux中的进程简析"><a href="#一、Linux中的进程简析" class="headerlink" title="一、Linux中的进程简析"></a>一、Linux中的进程简析</h3><p>进程是任何多道程序设计的操作系统额基本概念，就像我们经常看到的关于进程的定义就是程序执行的一个实例，也是系统资源调度的最小单位。如果同一个程序被多个用户同时运行，那么这个程序就有多个相对独立的进程，与此同时他们又共享相同的执行代码。在Linux系统中进程的概念类似于任务或者线程（task &amp; threads）。<br>实际上我们说进程是一个程序运行时候的一个实例实际上说的是它就是一个一个可以充分描述程序以达到了其可以运行状态的的一个数据和代码集合。一个进程会被产生并会复制出自己的子代，类似细胞分裂一样。从系统的角度来看进程的任务实际上就是担当承载系统资源的单位，系统在调度和分配资源的时候也会以他们作为基本单位开始进行分配。（系统中的资源很多例如CPU的时间片、内存堆栈等等）<br><a id="more"></a><br>我们知道程序或者进程执行的时候有的时候就会需要创建新的实例这个时候A如果新创建了B那么A就是B的父进程。实际上就是复制了几乎所有父进程的信息包括代码。子进程接收父进程地址空间的一个逻辑拷贝，（实际上就是可以理解为面向对象中的类创建实例的过程或者继承父类的这种关系，实际上他们看起来域属性是一样的但是又不会完全一样，所以我们说这里面是逻辑上的一个复制，后面会详细分析~）然后，这个子进程会从创建进程那个系统调用服务代码之后的下一条指令开始执行（ret_from_fork），执行代码与父进程是相同的。但是我们要知道实际上虽然AB都是指向相同的代码部分，但是正如我们知道的程序需要指令和数据，所以他们的数据拷贝是不同的，因此进程对一个内存单元的修改在AB之间是不可见的。以上是早期的时候情况，现代的系统实际上可能并不是这样的。在支持多线程应用的系统中很多拥有相对独立执行路径的用户程序共享应用程序的大部分数据结构。那么这样的话一个进程就是由几个用户线程组成，而且每一个执行线路就是一个线程。<br>那么进程在系统中的数据结构又是什么样子的呢？首先最应该知道就是系统如何管理这些进程，那么系统一定要有相应的数据结构去标识每一个进程以及他们的扩展数据结构（这里可以想象一下进程标识可能不会涵盖具体的执行代码和数据集合可能它仅仅是包含指向这些代码段和数据段的入口地址或者说是指针，事实上也是这样）大体上想想可以知道实际上这个结构就是我们在操作系统中所说的PCB（Process Control Block）在Linux中这个数据结构我们叫做task_struct,我们想想它实际上至少应该包括以下信息，比如优先级，它的运行状态，他所在的内存空间，它的文件访问权限等等，下图是抽象图：task进程链表管理，tty控制台，fs文件系统，files打开的文件描述符，mm内存管理描述，signal进程间通信信号<br><img src="http://olz5bd5zj.bkt.clouddn.com/linux6-1.png" alt="linux"></p>
-<blockquote>
-<p>Linux进程的状态与操作系统原理中的描述的进程状态似乎有所不同，比如就绪状态和运行状态都是TASK_RUNNING，为什么呢？<br>fork创建好新进程变成就绪态，调度器选择了进程后变成运行态。但都是task running，状态相同。因为进程是taskrunning时是可运行的，有无在运行看进程是否在cpu实际执行，根据这个来划分就绪和运行态。<br>正在运行进程调用do exit会变成taskzombie僵尸进程由系统处理掉；<br>正在运行进程等待资源会进入阻塞态，可用时被唤醒进入就绪态。</p>
-</blockquote>
-<p><img src="http://olz5bd5zj.bkt.clouddn.com/linux6-3.png" alt="linux"></p>
-<h4 id="1、进程的状态"><a href="#1、进程的状态" class="headerlink" title="1、进程的状态"></a>1、进程的状态</h4><p>进程执行时，它会根据具体情况改变状态 。进程状态是调度和对换的依据。Linux中的进程主要有如下状态（上面图中的那个state字段）<br><img src="http://olz5bd5zj.bkt.clouddn.com/linux6-2.png" alt="linux"><br>（1）可运行状态<br>基于linux简洁优雅的性质，系统这里面不区分执行和ready两个状态，只要进程处于资源充足状态，就可以运行或者随时可以准备执行。而准备运行的进程只要得到CPU就可以立即投入运行，CPU是这些进程唯一等待的系统资源。<br>（2）可中断的等待状态<br>       进程被挂起，直到等到一个可以唤醒他的东西，例如一个硬件中断、某项系统资源、或一个信号量。当它等到这些唤醒条件的之后就会进入可运行状态。<br>（3）不可中断的等待状态<br> 实际上我们要理解为什么是不可中断的，一种常见的状态就是这个进程正在访问一个独占的临界资源，这种时候处于一种不可抢占的状态。通常当进程接收到SIGSTOP、SIGTSTP、SIGTTIN或 SIGTTOU信号后就处于这种状态。例如，正接受调试的进程就处于这种状态。<br>（4）跟踪状态<br>        没什么说的，就是一个进程正在被另一个进程监视，比如我们在调试的时候。<br>（5）僵死状态<br>进程虽然已经终止，但由于某种原因，父进程还没有执行wait()系统调用，终止进程的信息也还没有回收。顾名思义，处于该状态的进程就是死进程，这种进程实际是系统中的垃圾，必须进行相应处理以释放其占用的资源。我们在设置这些状态的时候是可以直接用语句进行的比如：p—&gt;state = TASK_RUNNING。同时内核也会使用set_task_state和set_current_state。</p>
-<blockquote>
-<p>关于thread_info<br>进程是动态的，所以需要有效率的管理。Linux为每个进程分配一个8KB大小的内存区域，用于存放该进程两个不同的数据结构：Thread_info和进程的内核堆栈进程处于内核态时使用，不同于用户态堆栈，即PCB中指定了内核栈，那为什么PCB中没有用户态堆栈？用户态堆栈是怎么设定的？<br>内核控制路径所用的堆栈很少，因此对栈和Thread_info来说，8KB足够了</p>
-</blockquote>
-<h4 id="2、进程的创建"><a href="#2、进程的创建" class="headerlink" title="2、进程的创建"></a>2、进程的创建</h4><p>之前的分析中在linux启动过程中进程创建最后的rest_init时创建了两个kernel thread内核线程：1，kernel init最终去启动用户态进程init；2，启动了k_threadd是内核线程的demo。<br>使用shell时，0号进程在linux写死，1号进程从当前进程复制一份进程描述符PCB,根据需要修改pid等内容，再加载init可执行程序。</p>
-<blockquote>
-<p>进程是如何创建起来的？可能是复制后修改了一份成为了子进程，那子进程是从哪来启动的呢？先来分析shell命令行是如何创建一个子进程：<br>fork（）用于在用户态创建一个子进程的系统调用。<br>底下两个判断都会被执行，fork以后子父进程pid返回值不一样：子进程返回0；父进程返回子进程pid。从fork这里就变成了2个进程执行。</p>
-</blockquote>
-<p>于父进程 fork 返回子进程号，对于子进程 fork 返回 0 ，这也是执行路径如此的原因所在。但是， fork 的返回不同值的原因又是什么，这就得看 fork 的实现了。fork 先是调用 find_empty_process 为子进程找到一个空闲的任务号，然后调用 copy_process 复制进程， fork 返回 copy_process 的返回值 last_pid ，也就是子进程号。从上面的实现看来， fork 的返回值不会是 0 ， last_pid 从 1 开始，父进程执行 if 外面的部分，上面的逻辑正是父进程的执行逻辑。<br>对于子进程，先看子进程的初始状态， copy_process 中创造了子进程的上下文执行环境，这个上下文环境正是父进程 fork 系统调用时的环境，其中， p-&gt;tss.eip 正是被赋值为 fork 之后下一条指令地址，这就是子进程和父进程都返回到 fork 下一条指令处的原因。同时，需要注意的是， p-&gt;tss.eax 被赋了值 0 ，当调度到子进程开始执行时，首先加载其上下文环境， eip 被加载为 fork 之后下一条指令， eax 就被加载为 0 ，所以，对于子进程来说，和父进程唯一的区别就是返回值（ eax ）为 0 ，子进程执行 if 里面的部分。</p>
-<h3 id="二、实验过程"><a href="#二、实验过程" class="headerlink" title="二、实验过程"></a>二、实验过程</h3><p>首先我们要将新的menuOS放入我们的实验楼系统中，如下图所示<br><img src="https://dn-simplecloud.shiyanlou.com/2651671491125643969-wm" alt="实验楼"><br>然后我们看到我们把新的文件test_fork替换了之前的test.c文件因为里面我们加入了新的命令就是fork用于我们之后的运行调试，然后我们 make rootfs 制作很文件系统。然后我们就可以调试了。<br><img src="https://dn-simplecloud.shiyanlou.com/2651671491125888216-wm" alt="实验楼"><br>然后们开始设置一些主要的断点如下图:<br><img src="https://dn-simplecloud.shiyanlou.com/2651671491125980260-wm" alt="实验楼"><br>这里面我们看到我们设置了do_fork copy_process这样的断点，n是next的意思我们可以一条条执行这些代码。<br><img src="https://dn-simplecloud.shiyanlou.com/2651671491126073605-wm" alt="实验楼"><br>继续执行我们看到这里面会用一些条件判断和赋值的东西，比如将当先任务的thread_info是专为防止多处理器并发而引入的一种锁指向运行的那个模块之后将P指向的进程标识设为相应状态之后会设置一个自旋锁，这里面为什么要设置自旋锁呢？是专为防止多处理器并发而引入的一种锁，</p>
-<h4 id="三、总结"><a href="#三、总结" class="headerlink" title="三、总结"></a>三、总结</h4><p>可以看出，fork()中，内核并不立刻为新进程分配代码和数据物理内存页，新进程与父进程共同使用父进程已有的代码和数据物理内存页面。只有当以后执行过程中由一个进程一写方式访问内存时候被访问的内存页面才会在写操作之前被复制到新申请的内存页面中。另外在fork的最后是将任务设置成了就绪状态，由于fork（）是一个系统调用，在系统调用部分system_call.s，可以看到在系统函数返回后，会调用调度函数schedule（），在schedule()中，就会检测到新进程的就绪状态，并用switch_to()切换到新进程进行执行。<br> 具体过程是：首先在内存中申请一页内存存放进程控制块task_struct，并返回进程号nr，并在task数组的nr处存放task_struct的指针，还要将task的当前指针current指到nr处；然后将父进程的task_struct的内容复制到新进程的task_struct中作为模版；之后我们对task_struct中的信息进行修改，主要进行一下工作：设置父进程、清除信号位图、时间片、运行时间、根据当前环境设置tss（内核态指针esp0指向task_struct所在页的顶端）、设置LDT的选择子等(根据nr指向GDT中相应的ldt描述符)。 在之后我们要设置新进程的代码段、数据段的基地址和段长：更新task_struct中的代码开始地址：更新task_struct中局部描述符表中的代码段和数据段描述符。然后再复制父进程的页表目录项和页表：在页目录表中，复制父进程的页表目录项，目的地址由新进程的线性地址计算出来；对每个对应的页表目录项申请一个空闲页，并用页表地址更新页表目录项，最后将父进程页表中各项复制到新进程对应的页表中，也就是说，这个时候，子进程与父进程共享物理内存。并且更新task_struct中的文件信息：文件打开次数加1，父进程的当前目录引用数加1。还要设置TSS和LDT描述符项：在全局描述符表（GDT）中设置新任务的TSS描述符项和LDT段的描述符项，使TSS描述符项和LDT描述符项分别指向task_struct的TSS结构和LDT结构。最后我们将任务设置为就绪状态，向当前进程（父进程）返回新进程号。<br>最后总结一下，Linux进程的创建过程就是内存中进程相关资源产生的过程，就是clone的过程。例如task _struct、内核态堆栈、线型地址到物理地址的映射表、全局描述表（GDT）中的任务状态段，局部描述符表、代码段、堆、栈、参数全局变量等数据区什么的。上面提到的这几类资源中，很多都与task_struct有关，所以我想说一下task_struct。它是Linux的进程控制块，驻留在内存中，描述进程的基本信息，所以它是进程操作依据的重要数据结构。Linux中一般进程都是由现有的一个进程创建的，也就是我们所说的父进程，子进程。具体的创建是通过fork()实现的。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -245,97 +213,23 @@
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://tpioneer.github.io/2017/04/02/Linux内核分析六/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/04/05/Machine-Learning-1st-week/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Machine Learning---1st week
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/03/26/Linux内核分析五/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Linux内核分析五</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
-
-  
-    <div class="duoshuo"></div>
+    </div></section>
   
 
-
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/tags/Linux/">&laquo; Prev</a><a class="page-number" href="/tags/Linux/">1</a><span class="page-number current">2</span>
+    </nav>
+  
 
 
           </div>
@@ -358,9 +252,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
