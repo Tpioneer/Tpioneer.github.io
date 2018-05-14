@@ -191,13 +191,8 @@
         <blockquote>
 <p>关键词：感知机  对偶形式  判别模型</p>
 </blockquote>
-<h3 id="1-感知机模型"><a href="#1-感知机模型" class="headerlink" title="1 感知机模型"></a>1 感知机模型</h3><p>感知机（perceptron）是二类分类的简单线性分类模型，其输入为实例的特征向量，输出为实例的类别，取+1和-1为二值，感知机对应于输入空间（特征空间）中将实例分为正负两类的分离超平面，属于判别模型。感知机学习旨在求出将训练数据进行线性划分的分离超平面，为此，导入基于误分类的损失函数，利用梯度下降法对损失函数进行极小化，求得感知机模型。<br>感知机模型的数学表达式如下:<br>$$<br>f(x)=sign(w \cdot x+b)<br>$$<br>其中，w和为感知机模型参数，$w$叫作权值，b叫作偏置，$w \cdot x$表示$w$和$x$的内积,sign是符号函数，即<br>$$<br>sign(x)= \begin{cases} -1&amp; {x<0}\\\ 1& {x\geq 0} \end{cases}
-$$
-感知机模型的假设空间是定义在特征空间中的所有线性分类模型，即函数集合
-$$
-\{f|f(x)=w \cdot x +b\}
-$$
-这样在学习的过程中通过对训练数据集的学习确定参数w和b，然后通过学习到的感知机模型去预测新的输入实例。
+<h3 id="1-感知机模型"><a href="#1-感知机模型" class="headerlink" title="1 感知机模型"></a>1 感知机模型</h3><p>感知机（perceptron）是二类分类的简单线性分类模型，其输入为实例的特征向量，输出为实例的类别，取+1和-1为二值，感知机对应于输入空间（特征空间）中将实例分为正负两类的分离超平面，属于判别模型。感知机学习旨在求出将训练数据进行线性划分的分离超平面，为此，导入基于误分类的损失函数，利用梯度下降法对损失函数进行极小化，求得感知机模型。<br>感知机模型的数学表达式如下:<br>$$<br>f(x)=sign(w \cdot x+b)<br>$$<br>其中，w和为感知机模型参数，$w$叫作权值，b叫作偏置，$w \cdot x$表示$w$和$x$的内积,sign是符号函数，即<br>$$<br>sign(x)= \begin{cases} -1&amp; {x&lt;0}\\ 1&amp; {x\geq 0} \end{cases}<br>$$</p>
+<p>感知机模型的假设空间是定义在特征空间中的所有线性分类模型，即函数集合<br>$$<br>\{f|f(x)=w \cdot x +b\}<br>$$<br>这样在学习的过程中通过对训练数据集的学习确定参数w和b，然后通过学习到的感知机模型去预测新的输入实例。<br>
         
           <a class="article-more-a" href="/2018/05/13/机器学习算法总结一——感知机/#more">more >></a>
         
@@ -449,15 +444,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
