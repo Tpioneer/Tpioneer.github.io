@@ -6,17 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://tpioneer.github.io">
-  <title>Tag: 笔记 | ButterFly</title>
+  <title>机器学习算法总结二——线性回归 | ButterFly</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="100天倒计时">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ButterFly">
-<meta property="og:url" content="http://tpioneer.github.io/tags/笔记/index.html">
+  <meta name="description" content="关键词：线性回归   平方误差函数  梯度下降
+
+1 线性回归模型简介首先给出回归问题的一个定义：回归问题指的是在给定D维输⼊（input）变量x的情况下，预测⼀个或者多个连续目标（target）变量t的值。最常见的应用就是各种曲线拟合的场景，例如对一段时间房屋价格进行预测就是一个典型的回归问题。线性回归模型的最简单的形式就是目标值y是输入变量x的线性函数。但是，通过将⼀组输入变量的非线性函数进">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习算法总结二——线性回归">
+<meta property="og:url" content="http://tpioneer.github.io/2018/05/13/2018-05-13-机器学习算法总结二——线性回归/index.html">
 <meta property="og:site_name" content="ButterFly">
-<meta property="og:description" content="100天倒计时">
+<meta property="og:description" content="关键词：线性回归   平方误差函数  梯度下降
+
+1 线性回归模型简介首先给出回归问题的一个定义：回归问题指的是在给定D维输⼊（input）变量x的情况下，预测⼀个或者多个连续目标（target）变量t的值。最常见的应用就是各种曲线拟合的场景，例如对一段时间房屋价格进行预测就是一个典型的回归问题。线性回归模型的最简单的形式就是目标值y是输入变量x的线性函数。但是，通过将⼀组输入变量的非线性函数进">
+<meta property="og:updated_time" content="2018-05-20T13:44:05.746Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ButterFly">
-<meta name="twitter:description" content="100天倒计时">
+<meta name="twitter:title" content="机器学习算法总结二——线性回归">
+<meta name="twitter:description" content="关键词：线性回归   平方误差函数  梯度下降
+
+1 线性回归模型简介首先给出回归问题的一个定义：回归问题指的是在给定D维输⼊（input）变量x的情况下，预测⼀个或者多个连续目标（target）变量t的值。最常见的应用就是各种曲线拟合的场景，例如对一段时间房屋价格进行预测就是一个典型的回归问题。线性回归模型的最简单的形式就是目标值y是输入变量x的线性函数。但是，通过将⼀组输入变量的非线性函数进">
   
     <link rel="alternative" href="/atom.xml" title="ButterFly" type="application/atom+xml">
   
@@ -166,36 +173,48 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-2018-05-13-机器学习算法总结二——线性回归" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/13/2018-05-13-机器学习算法总结二——线性回归/" class="archive-article-date">
-  	<time datetime="2018-05-13T11:33:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-13</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/13/2018-05-13-机器学习算法总结二——线性回归/">机器学习算法总结二——线性回归</a>
+    <h1 class="article-title" itemprop="name">
+      机器学习算法总结二——线性回归
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/05/13/2018-05-13-机器学习算法总结二——线性回归/" class="archive-article-date">
+  	<time datetime="2018-05-13T11:33:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>关键词：线性回归   平方误差函数  梯度下降</p>
+</blockquote>
+<h3 id="1-线性回归模型简介"><a href="#1-线性回归模型简介" class="headerlink" title="1 线性回归模型简介"></a>1 线性回归模型简介</h3><p>首先给出回归问题的一个定义：回归问题指的是在给定D维输⼊（input）变量x的情况下，预测⼀个或者多个连续目标（target）变量t的值。最常见的应用就是各种曲线拟合的场景，例如对一段时间房屋价格进行预测就是一个典型的回归问题。线性回归模型的最简单的形式就是目标值y是输入变量x的线性函数。但是，通过将⼀组输入变量的非线性函数进行线性组合，我们可以得到一类更有用的函数，被称为基函数（basis  function）。这样的模型是参数的线性函数，这使得其分析起来较为简单，同时对于输入变量来说模型是非线性的。<br><a id="more"></a><br>给定⼀个由N个观测值 $\{x_n\}$组成的数据集，其中$n = 1,…N$，以及对应的目标值${t_n}$，我们的目标是预测对于给定新的$x$值的情况下$t$的值。最简单的方法是，直接建立⼀个适当的函数y(x)，对于新的输入$x$，这个函数能够直接给出对应的$t$的预测。更⼀般地，从⼀个概率的观点来看，我们的目标是对预测分布$p(t | x)$建模，因为它表达了对于每个$x$值，我们对于t的值的不确定性。从这个条件概率分布中，对于任意的$x$的新值，我们可以对$t$进行预测，这种方法等同于最小化⼀个恰当选择的损失函数的期望值。</p>
+<p>回归模型的最简单形式如下：<br>$$<br>y(x,w) = w_0 + w_1x_1 + \cdots +w_dx_d  \tag{1}<br>$$<br>其中$x = (x_1,…, x_D)^T$ 。这通常被简单地称为线性回归（linear regression）。这个模型的关键性质是它是参数$w_0,…,w_D$的⼀个线性函数。但是，它也是输入变量$x_i$的⼀个线性函数，这给模型带来的极大的局限性。因此我们这样扩展模型的类别：将输入变量的固定的非线性函数进行线性组合，形式为<br>$$<br>y(x,w) = \sum_{j=0}^{M-1}w_j\phi_j(x) = w^T\phi(x) \tag{2}<br>$$<br>其中$\phi_j(x)$被称为基函数（basis function），$w = (w_0,…,w_{M-1})^T$ 且$ϕ = (\phi_0,…, \phi_{M-1})^T$ 。基函数的选择有很多，如常见的高斯基函数,其中$\mu_j$控制了基函数在输⼊空间中的位置，参数s控制了基函数的空间大小。：<br>$$<br>\phi_j(x) = \exp\bigg\{-\frac{(x-\mu_j)^2}{2s^2}\bigg\} \tag{3}<br>$$<br>sigmoid基函数:<br>$$<br>\phi_j(x) = \sigma\Big(\frac{x-\mu_j}{s}\Big) \tag{4}<br>$$<br>其中$\sigma(a)$是logistic sigmoid函数，定义为<br>$$<br>\sigma_a = \frac{1}{1+\exp(-a)} \tag{5}<br>$$<br>但是在这里本文几乎不会涉及到基函数的选择，这里默认$\phi(x)=x$。</p>
+<h3 id="2-最大似然与最小平方"><a href="#2-最大似然与最小平方" class="headerlink" title="2 最大似然与最小平方"></a>2 最大似然与最小平方</h3><p>我们假设目标变量$t$由确定的函数$y(x,w)$给出，这个函数被附加了高斯噪声，即<br>$$<br>t = y(x,w) + \epsilon \tag{6}<br>$$<br>其中$ϵ$是⼀个零均值的高斯随机变量，精度（方差的倒数）为$\beta$。因此我们有<br>$$<br>p(t|x,w,\beta) = \mathcal{N}(t|y(x,w),\beta^{-1}) \tag{7}<br>$$<br>接着考虑这样一个数据集$X = (x_1,…, x_N)$，对应的目标值是$t_1,…,t_N$，记作向量$\boldsymbol{t}$假设这些数据点是独立地从分布(7)中抽取那么我们可以得到下面的似然函数的表达式，它是可调节参数$w$和$\beta$的函数，形式为<br>$$<br>p(t|X,w,\beta) = \prod\mathcal{N}(t_n|w^T\phi(x_n),\beta^{-1}) \tag{8}<br>$$<br>按照⼀元高斯分布的标准形式对(8)式取对数可得对数似然函数如下：<br>$$<br>\begin{align}\mathrm{ln}p(t|w,\beta) &amp;= \sum_{n=1}^{N}\mathrm{ln}\mathcal{N}(t_n|w^T\phi(x_n), \beta^-1) \\<br>&amp;= \frac{N}{2}\mathrm{ln}\beta - \frac{N}{2}\mathrm{ln}(2\pi) - \beta E_D(w)<br>\tag{9}<br>\end{align}<br>$$<br>其中平方和误差函数$E_D(w)$的定义为<br>$$<br>E_D(w) = \frac{1}{2}\sum_{n=1}^N \{tn-w^T\phi(x_n)\}^2 \tag {10}<br>$$<br>由(9)式可以发现，由于右式前两项与$w$无关，则最大化似然函数在高斯噪声的情况下等价于最小化平方误差函数$E_D(w)$,令(9)式的梯度为0有<br>$$<br>0 = \sum_{n=1}^Nt_n\phi(x_n)^T - w^T(\sum_{n=1}^N\phi(x_n)\phi(x_n)^T) \tag{11}<br>$$<br>求解$w$，我们有<br>$$<br>w_{ML} = (\Phi^T\Phi)^{-1}\Phi^Tt \tag{12}<br>$$<br>这被称为最小平方问题的规范方程（normal equation）。这里$\Phi$是⼀个N$\times$M的矩阵，被称为设计矩阵（design matrix），它的元素为$\Phi_{nj} = \Phi_j(x_n)$，即<br>$$<br>\Phi = \left( \begin{array}\<br>\phi_0(x_{1}) &amp; \phi_0(x_{1}) &amp; \ldots &amp;\phi_{M-1}(x_{1}) \\<br>\phi_0(x_{2}) &amp; \phi_1(x_{2}) &amp; \ldots &amp;  \phi_{M-1}(x_{2}) \\<br>\vdots &amp; \vdots &amp; \ddots &amp;\vdots \\<br>\phi_0(x_{N}) &amp;\phi_1(x_{N})&amp; \ldots &amp;\phi_{M-1}(x_{N})<br>\end{array} \right) \tag{13}<br>$$</p>
+<p>令<br>$$<br>\Phi^†  \equiv (\Phi^T\Phi)^{-1}\Phi^T \tag{14}<br>$$<br>$\Phi^†$被称为矩阵$\Phi$的Moore-Penrose伪逆矩阵（pseudo-inverse matrix）。</p>
+<h3 id="3-顺序学习"><a href="#3-顺序学习" class="headerlink" title="3 顺序学习"></a>3 顺序学习</h3><p>最大似然解(12)的求解过程涉及到⼀次处理整个数据集。这种批处理技术对于大规模数据集来说计算量相当大。正如我们在第1章讨论的那样，如果数据集充分大，那么使用顺序算法（也被称为在线算法）可能更有价值。顺序算法中，每次只考虑⼀个数据点，模型的参数在每观测到⼀个数据点之后进行更新。顺序学习也适用于实时的应⽤。在实时应用中，数据观测以⼀个连续的流的⽅式持续到达，我们必须在观测到所有数据之前就做出预测。我们可以获得⼀个顺序学习的算法通过考虑随机梯度下降（stochastic gradient descent），也被称为顺序梯度下降（sequential gradient descent）的⽅法。如果误差函数由数据点的和组成$E =\sum_n E_n$，那么在得到第n组数据之后，随机梯度下降算法使用下式更新参数向量w<br>$$<br>w^{(\tau +1)} = w^{(\tau)} - \eta\nabla E_n \tag{15}<br>$$<br>其中$\tau$表示迭代次数，$\eta$是学习率参数。我们稍后会讨论$\eta$的选择问题。$w$被初始化为某个起始向量$w^{(0)}$。对于平方和误差函数（3.12）的情形，我们有<br>$$<br>w^{(\tau +1)} = w^{(\tau)} +\eta(t_n - w^{(\tau) T} \phi_n)\phi_n \tag{16}<br>$$<br>其中$\phi_n=\phi(x_n)$。</p>
+<h3 id="4-算法实现"><a href="#4-算法实现" class="headerlink" title="4 算法实现"></a>4 算法实现</h3><p>下面附上线性回归的一个简单实现，这里考虑到可能会扩展到带有正则项的线性回归，将梯度下降法的实现放在了基类Regression中，在LinearRegression中则实现了线性回归的闭式解，即通过计算$\Phi$的伪逆矩阵来直接得到$w$的解。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Regression</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="string">""" </span></div><div class="line">    n_iterations: float</div><div class="line">        The number of training iterations.</div><div class="line">    learning_rate: float</div><div class="line">        The step length used for updating the weights.</div><div class="line">    """</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, n_iterations, learning_rate)</span>:</span></div><div class="line">        self.n_iterations = n_iterations</div><div class="line">        self.learning_rate = learning_rate</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">initialize_weights</span><span class="params">(self, n_features)</span>:</span></div><div class="line">        <span class="string">""" Initialize weights randomly [-1/N, 1/N] """</span></div><div class="line">        limit = <span class="number">1</span> / math.sqrt(n_features)</div><div class="line">        self.w = np.random.uniform(-limit, limit, (n_features, ))</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fit</span><span class="params">(self, X, y)</span>:</span></div><div class="line">        <span class="comment"># Insert constant ones for bias weights</span></div><div class="line">        X = np.insert(X, <span class="number">0</span>, <span class="number">1</span>, axis=<span class="number">1</span>)</div><div class="line">        self.training_errors = []</div><div class="line">        self.initialize_weights(n_features=X.shape[<span class="number">1</span>])</div><div class="line"></div><div class="line">        <span class="comment"># Do gradient descent for n_iterations</span></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(self.n_iterations):</div><div class="line">            y_pred = X.dot(self.w)</div><div class="line">            <span class="comment"># Calculate l2 loss</span></div><div class="line">            mse = np.mean(<span class="number">0.5</span> * (y - y_pred)**<span class="number">2</span> </div><div class="line">            self.training_errors.append(mse)</div><div class="line">            <span class="comment"># with equation (16)</span></div><div class="line">            <span class="comment"># Gradient of l2 loss w.r.t w</span></div><div class="line">            grad_w = -(y - y_pred).dot(X) </div><div class="line">            <span class="comment"># Update the weights</span></div><div class="line">            self.w -= self.learning_rate * grad_w</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">predict</span><span class="params">(self, X)</span>:</span></div><div class="line">        <span class="comment"># Insert constant ones for bias weights</span></div><div class="line">        X = np.insert(X, <span class="number">0</span>, <span class="number">1</span>, axis=<span class="number">1</span>)</div><div class="line">        y_pred = X.dot(self.w)</div><div class="line">        <span class="keyword">return</span> y_pred</div><div class="line">                          </div><div class="line">                          </div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">LinearRegression</span><span class="params">(Regression)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, n_iterations=<span class="number">100</span>, learning_rate=<span class="number">0.001</span>, gradient_descent=False)</span>:</span></div><div class="line">        self.gradient_descent = gradient_descent</div><div class="line">        super(LinearRegression, self).__init__(n_iterations=n_iterations,</div><div class="line">                                            learning_rate=learning_rate)</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fit</span><span class="params">(self, X, y)</span>:</span></div><div class="line">        <span class="comment"># If not gradient descent =&gt; Least squares approximation of w</span></div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self.gradient_descent:</div><div class="line">            <span class="comment"># Insert constant ones for bias weights</span></div><div class="line">            X = np.insert(X, <span class="number">0</span>, <span class="number">1</span>, axis=<span class="number">1</span>)</div><div class="line">            <span class="comment"># see the equation (14)</span></div><div class="line">            self.w = np.linalg.pinv(X).dot(y)</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            super(LinearRegression, self).fit(X, y)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>参考资料</p>
+<p>《Pattern Recognition and Machine Learning》  Christopher M Bishop </p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -211,61 +230,119 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://tpioneer.github.io/2018/05/13/2018-05-13-机器学习算法总结二——线性回归/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/13/机器学习算法总结一——感知机/" class="archive-article-date">
-  	<time datetime="2018-05-13T11:33:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-13</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/05/13/机器学习算法总结一——感知机/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">机器学习算法总结一——感知机</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/13/机器学习算法总结一——感知机/">机器学习算法总结一——感知机</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-线性回归模型简介"><span class="toc-number">1.</span> <span class="toc-text">1 线性回归模型简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-最大似然与最小平方"><span class="toc-number">2.</span> <span class="toc-text">2 最大似然与最小平方</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-顺序学习"><span class="toc-number">3.</span> <span class="toc-text">3 顺序学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-算法实现"><span class="toc-number">4.</span> <span class="toc-text">4 算法实现</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -288,9 +365,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
