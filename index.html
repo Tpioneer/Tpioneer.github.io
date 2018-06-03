@@ -168,6 +168,93 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-2018-06-03-机器学习总结三——K近邻" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/03/2018-06-03-机器学习总结三——K近邻/">机器学习总结三——K近邻</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/03/2018-06-03-机器学习总结三——K近邻/" class="archive-article-date">
+  	<time datetime="2018-06-03T12:10:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>关键词：</p>
+</blockquote>
+<h3 id="1-K近邻定义"><a href="#1-K近邻定义" class="headerlink" title="1 K近邻定义"></a>1 K近邻定义</h3><p>k近邻(k nearest neighbors)算法是一种很简单但很有效的分类算法，这里给出一个最朴素的K近邻算法：<br> <strong>K近邻算法</strong><br>输入：给出训练数据集$T=(x_1,y_1),(x_2,y_2),…(x_N,y_N)$与需预测的$x$和k值<br>输出：实例$x$所属的类y<br>算法步骤：<br>(1) 根据给定的距离度量，在训练集T中找出与$x$最近邻的k个点，涵盖这k个点的$x$的邻域记作$N_k(x)$<br>(2) 在$N_k(x)$中根据分类决策规则，如多数表决决定$x$的类别y。 </p>
+<h3 id="2-参数的选择"><a href="#2-参数的选择" class="headerlink" title="2 参数的选择"></a>2 参数的选择</h3><p>这里给出<strong>闵可夫斯基距离(Minkowski distance)</strong>的定义 ，即$L_p$范数，当p=2时即为我们常见的欧氏距离，当p=1时即为曼哈顿距离。<br>$$<br>L_p(x_i,x_j)=(\displaystyle\sum_{l=1}^{n}|x_i^{(l)}-x_j^{(l)}|^p)^{\frac{1}{p}}<br>$$<br>当然也有其他的距离度量的选择，如<strong>马氏距离(Mahalanobis distance)</strong>，<strong>余弦距离(Cosine distance)、杰卡德距离(Jaccard distance)、相关距离(Correlation distance)和信息熵(Information Entropy)</strong> 等，有兴趣的话可以自己去查阅资料，这里不过多赘述。<br>k值的选择也很重要，这会对k近邻的结果产生重大的影响。  如果选择较小的K值，就相当于用较小的邻域中的训练实例进行预测，“学习”的近似误差会减小，只有输入实例较近的训练实例才会对预测结果起作用。但缺点是“学习”的估计误差会增大，预测结果会对近邻实例点非常敏感。如果邻近的实例点恰巧是噪声，预测就会出错。换句话说，k值得减小就意味着整体模型非常复杂，容易发生过拟合。<br>如果选择较大的k值，就相当于用较大邻域中的训练实例进行预测，其实有点像是在减少学习的估计误差，但缺点是学习的近似误差会增大。这时与输入实例较远的训练实例也会起预测作用，使预测发生错误，k值得增大就意味着整体的模型变得简单。如果K=N，那么无论输入实例是什么，都将简单的预测它属于训练实例中最多达到类。这时，模型过于简单，完全忽略训练中的大量有用信息，是不可取的。<br>在应用中，k值一般取一个比较小的数值，通常采用交叉验证法来选择最优k值。按经验规则来说：k一般低于训练样本数的平方根 。</p>
+<h3 id="3-分类决策规则"><a href="#3-分类决策规则" class="headerlink" title="3 分类决策规则"></a>3 分类决策规则</h3><p>k近邻的分类决策规则是最为常见的多数投票规则，也就是在最近的K个点中，哪个标签数目最多，就把目标点的标签归于哪一类。当然，这也是有理论依据的：<br>如果分类的损失函数为0-1损失函数，则误分类的概率是：<br>$$<br>P(Y≠f(X))=1-P(Y=f(X))<br>$$<br>也就是说误分类率为：<br>$$<br>\frac{1}{k}\sum I(y_i≠c_j)=1-\frac{1}{k}I(y_i=c_j)<br>$$<br>要使得误分类率最小，也就是经验风险最小，就要使得$\frac{1}{k}I(y_i=c_j)$最大，所以多数表决规则等价于经验最小化。</p>
+<h3 id="4-代码实现"><a href="#4-代码实现" class="headerlink" title="4 代码实现"></a>4 代码实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</div><div class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</div><div class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</div><div class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> normalize</div><div class="line"><span class="keyword">import</span> math</div><div class="line">np.random.seed(<span class="number">1024</span>)</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">euclidean_distance</span><span class="params">(x1, x2)</span>:</span></div><div class="line">    <span class="string">""" Calculates the l2 distance between two vectors """</span></div><div class="line">    distance = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(x1)):</div><div class="line">        distance += pow((x1[i] - x2[i]), <span class="number">2</span>)</div><div class="line">    <span class="keyword">return</span> math.sqrt(distance)</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">KNN</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, k=<span class="number">3</span>)</span>:</span></div><div class="line">        self.k = k</div><div class="line"></div><div class="line">    <span class="comment"># @staticmethod</span></div><div class="line">    <span class="comment"># def _majority_vote(n_neighbor_labels):</span></div><div class="line">    <span class="comment">#     return np.argmax(np.bincount(n_neighbor_labels))</span></div><div class="line"></div><div class="line"><span class="meta">    @staticmethod</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_majority_vote</span><span class="params">(n_neighbor_labels)</span>:</span></div><div class="line">        cnt = Counter(n_neighbor_labels)</div><div class="line">        <span class="keyword">return</span> cnt.most_common(<span class="number">1</span>)[<span class="number">0</span>][<span class="number">0</span>]</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">predict</span><span class="params">(self, X_train, y_train, X_test)</span>:</span></div><div class="line">        y_preds = []</div><div class="line">        <span class="keyword">for</span> x_t <span class="keyword">in</span> X_test:</div><div class="line">            distances = [euclidean_distance(x_t, x) <span class="keyword">for</span> x <span class="keyword">in</span> X_train]</div><div class="line">            inds = np.argsort(distances)[:self.k]</div><div class="line">            y_label = self._majority_vote([y_train[i] <span class="keyword">for</span> i <span class="keyword">in</span> inds])</div><div class="line">            y_preds.append(y_label)</div><div class="line">        <span class="keyword">return</span> y_preds</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># def toy_data():</span></div><div class="line"><span class="comment">#     # create a matrix: each row as a sample</span></div><div class="line"><span class="comment">#     feature = np.array([[1.0, 0.9], [1.0, 1.0], [0.1, 0.2], [0.0, 0.1]])</span></div><div class="line"><span class="comment">#     labels = ['a', 'a', 'b', 'b']</span></div><div class="line"><span class="comment">#     return feature, labels</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">accuracy_score</span><span class="params">(y_true, y_pred)</span>:</span></div><div class="line">    accuracy = np.sum(y_true == y_pred, axis=<span class="number">0</span>) / len(y_true)</div><div class="line">    <span class="keyword">return</span> accuracy</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    data = datasets.load_iris()</div><div class="line">    X = normalize(data.data)</div><div class="line">    y = data.target</div><div class="line">    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="number">0.33</span>)</div><div class="line">    knn = KNN(<span class="number">5</span>)</div><div class="line">    y_pred = knn.predict(X_train, y_train, X_test)</div><div class="line">    acc = accuracy_score(y_pred, y_test)</div><div class="line"></div><div class="line">    print(acc)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>参考资料<br>《统计学习方法》</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/03/2018-06-03-机器学习总结三——K近邻/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-2018-05-13-机器学习算法总结二——线性回归" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -526,15 +613,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
